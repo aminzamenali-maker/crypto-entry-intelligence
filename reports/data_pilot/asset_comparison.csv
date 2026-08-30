@@ -1,0 +1,4 @@
+symbol,pilot_rows,mean_hourly_quote_volume_usdt,median_hourly_trades,min_price,max_price,tested_files,passed_files,total_missing_intervals,quality_pass_rate_pct,quote_volume_rank
+BTCUSDT,1488,99280855.18321653,82507.5,38555.0,109588.0,4,4,0,100.0,1
+ETHUSDT,1488,53932429.06238207,52052.5,2100.0,3744.83,4,4,0,100.0,2
+SOLUSDT,1488,39813914.89591719,40847.5,79.0,295.83,4,4,0,100.0,3

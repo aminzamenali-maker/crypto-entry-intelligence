@@ -1,0 +1,17 @@
+{
+  "aggregate_result_rows": 480,
+  "cost_scenarios_bps": [
+    20,
+    30,
+    50
+  ],
+  "entry_rule": "next_open_after_signal_close",
+  "exit_rule": "open_after_exact_holding_bars",
+  "planned_cells_per_split": 720,
+  "positions_across_segments": 0,
+  "primary_cost_scenario": "base_30bps",
+  "result_rows": 1440,
+  "same_bar_entries": 0,
+  "shortened_boundary_trades": 0,
+  "trade_rows": 264624
+}

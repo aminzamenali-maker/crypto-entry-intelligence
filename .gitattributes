@@ -1,0 +1,22 @@
+* text=auto
+
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+*.xlsx binary
+*.zip binary
+*.pbix binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+
+# Intentional Markdown hard-break spaces embedded in immutable Phase-2B evidence.
+src/backtest_pipeline.py whitespace=-trailing-space
+reports/backtest/phase2b_outputs/PHASE2B_QUALITY_REPORT.md whitespace=-trailing-space
+reports/backtest/phase2b_method/PHASE2B_REBUILD_REPORT.md whitespace=-trailing-space
+reports/backtest/phase2b_method/PHASE2B_INDEPENDENT_ACCEPTANCE_REPORT.md whitespace=-trailing-space

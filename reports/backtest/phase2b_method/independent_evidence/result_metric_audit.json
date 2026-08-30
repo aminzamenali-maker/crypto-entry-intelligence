@@ -1,0 +1,45 @@
+{
+  "results_rows_expected": 1440,
+  "results_rows_actual": 1440,
+  "aggregate_rows_expected": 480,
+  "aggregate_rows_actual": 480,
+  "baseline_rows": 360,
+  "context_rows": 720,
+  "primary_pooled_summary": [
+    {
+      "split": "development",
+      "timeframe": "1h",
+      "trades": 8919,
+      "average_gross_return": 0.0003444533898709027,
+      "average_net_return": -0.00265208366644549,
+      "hit_rate": 0.3952236797847292
+    },
+    {
+      "split": "development",
+      "timeframe": "4h",
+      "trades": 4967,
+      "average_gross_return": -0.00045881556882357684,
+      "average_net_return": -0.003452946428761553,
+      "hit_rate": 0.3958123615864707
+    },
+    {
+      "split": "validation",
+      "timeframe": "1h",
+      "trades": 4722,
+      "average_gross_return": 0.0010585488561606542,
+      "average_net_return": -0.0019401272768699979,
+      "hit_rate": 0.3390512494705633
+    },
+    {
+      "split": "validation",
+      "timeframe": "4h",
+      "trades": 2623,
+      "average_gross_return": 0.0013851208234538267,
+      "average_net_return": -0.0016145335576175223,
+      "hit_rate": 0.3488372093023256
+    }
+  ],
+  "mismatch_counts": {},
+  "mismatch_examples": {},
+  "all_pass": true
+}

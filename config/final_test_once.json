@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "phase": "2C_FINAL_TEST_ONCE_PREPARATION",
+  "status": "PREPARED_NOT_EXECUTED",
+  "approved_method_commit": "648a74198a97e4e57d839a05db2af55fd1229190",
+  "expected_branch": "phase/2-signals-backtest",
+  "confirmation_token": "FINAL_TEST_2024_2025_EXACTLY_ONCE",
+  "restrictions": {
+    "historical_data_only": true,
+    "network_access": false,
+    "allowed_hosts": [],
+    "live_orders": false,
+    "shorts": false,
+    "leverage": false,
+    "funding": false,
+    "machine_learning": false,
+    "parameter_optimization": false,
+    "overwrite_existing_outputs": false,
+    "automatic_retry_after_start": false,
+    "require_clean_git": true,
+    "require_no_remote": true
+  },
+  "method": {
+    "phase2a_config": "config/backtest.json",
+    "phase2b_config": "config/backtest_phase2b.json",
+    "phase2b_pipeline": "src/backtest_pipeline.py",
+    "gate2_acceptance_report": "reports/backtest/phase2b_method/PHASE2B_INDEPENDENT_ACCEPTANCE_REPORT.md",
+    "phase2b_manifest": "reports/backtest/phase2b_outputs/phase2b_manifest.csv",
+    "phase2b_provenance": "reports/backtest/phase2b_outputs/input_output_hashes.json",
+    "phase2b_bundle_snapshot": "d2d6c3c90939144536ee263aeb71848e1dde3b44abf2d51d4a3b030993aa2b8a",
+    "protected_files": {
+      "config/backtest.json": "e4deb6b6ad56a8517f86822d85086524c3cd3c29890d9754453163d7f1107f04",
+      "config/backtest_phase2b.json": "16382dc037b56fa30b5cfabff2dc1f336dab81b13c62cffafcef44f5c391a78e",
+      "reports/backtest/PHASE2_METHOD_PLAN.md": "a1c30e2484d252a65e8ca882eb305adabb520379177147f0210d10ded29daf95",
+      "reports/backtest/FEATURE_SIGNAL_DICTIONARY.md": "d3ece11736ac4d799113724850c8761119d86934522ac164cc2055bc951594fc",
+      "reports/backtest/GATE2_ACCEPTANCE_CRITERIA.md": "d22698db5d4a76aa09ab9f67657a2b002fefb3201e44e519c0fb5e7a23f94ced",
+      "src/backtest_contract.py": "4ad4ff9c54a9fd3a74a3212b4b80fac754a4edfef4f8aa3536b75696d426fbc3",
+      "tests/test_backtest_contract.py": "ba93d4801c73a9871e0c9a6ea763feb91d6533cb7c83e06bc1b3923e85131286",
+      "src/backtest_pipeline.py": "8a8ab18b5575d5366429683cede5253bb3bd4640964671da8d879848d124d28c",
+      "tests/test_backtest_pipeline.py": "4b727db48976c9663c0c8b9e40b34e4b4d009f4461c3502ae96d9730ef01e165",
+      "reports/backtest/phase2b_method/PHASE2B_INDEPENDENT_ACCEPTANCE_REPORT.md": "bcc3095b1f5b0b0057b5c3ff3c9b444cb2bd0c51745272b1ef2e874eaded6846",
+      "reports/backtest/phase2b_outputs/phase2b_manifest.csv": "b65d4af6085899b5be49a2e1fa7e246937397454a9fb06b641567c4314e56ef4",
+      "reports/backtest/phase2b_outputs/input_output_hashes.json": "c9bdadffab86c8b8f7940429d92b1fdef79389d3e846e0a7284917aaa09184f7"
+    }
+  },
+  "evaluation": {
+    "split": "final_test",
+    "start_inclusive_utc": "2024-01-01T00:00:00Z",
+    "end_exclusive_utc": "2026-01-01T00:00:00Z",
+    "expected_rows": {
+      "1h": 52632,
+      "4h": 13158,
+      "total": 65790
+    },
+    "contexts": [
+      "primary_d1",
+      "sensitivity_d2"
+    ],
+    "evaluate_all_preregistered_signals": true,
+    "evaluate_all_preregistered_horizons": true,
+    "evaluate_all_preregistered_costs": true,
+    "allow_post_result_parameter_change": false
+  },
+  "output": {
+    "data_root": "data/processed/final_test_once",
+    "report_root": "reports/backtest/final_test_outputs",
+    "state_path": "data/processed/final_test_run_state.json",
+    "receipt_path": "reports/backtest/final_test_method/FINAL_TEST_EXECUTION_RECEIPT.json"
+  }
+}

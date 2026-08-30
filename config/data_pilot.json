@@ -1,0 +1,145 @@
+{
+  "pilot_id": "gate0_data_sources_2026-07-27",
+  "user_agent": "dsp-crypto-entry-intelligence-pilot/0.1 educational-project",
+  "assets": [
+    {
+      "symbol": "BTCUSDT",
+      "asset": "BTC",
+      "comparison_role": "liquider Referenzmarkt und Marktkontext"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "asset": "ETH",
+      "comparison_role": "großer Smart-Contract-Markt"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "asset": "SOL",
+      "comparison_role": "jüngerer, volatilerer Vergleichsmarkt"
+    }
+  ],
+  "timeframes": {
+    "1h": 3600,
+    "4h": 14400
+  },
+  "pilot_months": [
+    "2024-01",
+    "2025-01"
+  ],
+  "recommended_history": {
+    "start_utc": "2021-01-01T00:00:00Z",
+    "end_exclusive_utc": "2026-01-01T00:00:00Z",
+    "reason": "Fuenf vollstaendige Kalenderjahre mit mehreren Marktphasen; 2026 bleibt ausserhalb des ersten Core-Imports."
+  },
+  "binance": {
+    "base_url": "https://data.binance.vision/data/spot/monthly/klines",
+    "documentation_url": "https://github.com/binance/binance-public-data/blob/master/README.md",
+    "terms_note": "Das offizielle Public-Data-Repository nennt MIT; Rohdateien bleiben lokal und werden nicht in Git gespeichert."
+  },
+  "coinmetrics": {
+    "url": "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics",
+    "asset": "btc",
+    "metrics": [
+      "PriceUSD",
+      "CapMrktCurUSD",
+      "TxCnt",
+      "AdrActCnt"
+    ],
+    "frequency": "1d",
+    "start_time": "2023-12-31",
+    "end_time": "2025-01-31",
+    "page_size": 10000,
+    "availability_lag_days": 1,
+    "availability_lag_sensitivity_days": 2,
+    "documentation_url": "https://docs.coinmetrics.io/api/v4/",
+    "terms_url": "https://docs.coinmetrics.io/api",
+    "terms_note": "Community API ohne Schluessel; laut offizieller Dokumentation fuer nicht-kommerzielle Nutzung unter Creative-Commons-Bedingungen. Attribution bleibt erforderlich."
+  },
+  "candidate_sources": [
+    {
+      "source": "Binance Public Data",
+      "role": "primaere OHLCV-Marktquelle",
+      "probe_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1h/BTCUSDT-1h-2024-01.zip.CHECKSUM",
+      "documentation_url": "https://github.com/binance/binance-public-data/blob/master/README.md",
+      "criteria": {
+        "ohne_geheimnis_nutzbar": 1,
+        "zielzeitraum_abdeckbar": 1,
+        "fester_zeitraum_reproduzierbar": 1,
+        "anbieter_pruefsumme": 1,
+        "core_relevanz": 1,
+        "limits_fuer_vollimport_tauglich": 1,
+        "nutzungsbedingungen_hinreichend_klar": 1
+      },
+      "decision": "auswaehlen: primaere Quelle",
+      "main_limit": "Exchange-spezifische Sicht; Archivdateien koennen spaeter korrigiert werden."
+    },
+    {
+      "source": "Coin Metrics Community API",
+      "role": "ergaenzender taeglicher BTC-Markt- und Netzwerk-Kontext",
+      "probe_url": "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD&frequency=1d&start_time=2024-01-01&end_time=2024-01-02",
+      "documentation_url": "https://docs.coinmetrics.io/api/v4/",
+      "criteria": {
+        "ohne_geheimnis_nutzbar": 1,
+        "zielzeitraum_abdeckbar": 1,
+        "fester_zeitraum_reproduzierbar": 1,
+        "anbieter_pruefsumme": 0,
+        "core_relevanz": 1,
+        "limits_fuer_vollimport_tauglich": 1,
+        "nutzungsbedingungen_hinreichend_klar": 1
+      },
+      "decision": "auswaehlen: ergaenzende Quelle",
+      "main_limit": "Taegliche Werte koennen revidiert werden; Rohsnapshot und lokaler SHA-256 sind deshalb Pflicht."
+    },
+    {
+      "source": "Coinbase Exchange Candles",
+      "role": "Reserve fuer Cross-Exchange-Plausibilisierung",
+      "probe_url": "https://api.exchange.coinbase.com/products/BTC-USD/candles?start=2024-01-01T00%3A00%3A00Z&end=2024-01-02T00%3A00%3A00Z&granularity=3600",
+      "documentation_url": "https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles",
+      "criteria": {
+        "ohne_geheimnis_nutzbar": 1,
+        "zielzeitraum_abdeckbar": 1,
+        "fester_zeitraum_reproduzierbar": 1,
+        "anbieter_pruefsumme": 0,
+        "core_relevanz": 1,
+        "limits_fuer_vollimport_tauglich": 0,
+        "nutzungsbedingungen_hinreichend_klar": 0
+      },
+      "decision": "Reserve, nicht Core",
+      "main_limit": "Maximal 300 Kerzen je Anfrage, dokumentierte Datenluecken und restriktivere Bedingungen fuer Speicherung/Weitergabe."
+    },
+    {
+      "source": "CoinGecko Keyless API",
+      "role": "Kandidat fuer Marktbreite und Marktkapitalisierung",
+      "probe_url": "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=1704067200&to=1704153600",
+      "documentation_url": "https://docs.coingecko.com/docs/keyless-public-api",
+      "criteria": {
+        "ohne_geheimnis_nutzbar": 1,
+        "zielzeitraum_abdeckbar": 0,
+        "fester_zeitraum_reproduzierbar": 0,
+        "anbieter_pruefsumme": 0,
+        "core_relevanz": 1,
+        "limits_fuer_vollimport_tauglich": 0,
+        "nutzungsbedingungen_hinreichend_klar": 0
+      },
+      "decision": "fuer Core verwerfen",
+      "main_limit": "Keyless-Zugriff ist im Pilot fuer historische Abfragen auf die letzten 365 Tage begrenzt."
+    },
+    {
+      "source": "FRED",
+      "role": "optionaler Makro-/Risikokontext",
+      "probe_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF&cosd=2024-01-01&coed=2024-01-31",
+      "documentation_url": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
+      "criteria": {
+        "ohne_geheimnis_nutzbar": 0,
+        "zielzeitraum_abdeckbar": 1,
+        "fester_zeitraum_reproduzierbar": 1,
+        "anbieter_pruefsumme": 0,
+        "core_relevanz": 0,
+        "limits_fuer_vollimport_tauglich": 1,
+        "nutzungsbedingungen_hinreichend_klar": 0
+      },
+      "decision": "Stretch zurueckstellen",
+      "main_limit": "Offizielle API verlangt einen Schluessel; Revisionszeitpunkt und Rechte der einzelnen Reihe muessen separat geprueft werden."
+    }
+  ]
+}

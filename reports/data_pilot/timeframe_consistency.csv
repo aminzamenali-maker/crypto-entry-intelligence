@@ -1,0 +1,7 @@
+symbol,pilot_month,direct_4h_rows,aggregated_4h_rows,missing_or_extra_rows,value_mismatches,timeframe_consistency_pass
+BTCUSDT,2024-01,186,186,0,0,True
+BTCUSDT,2025-01,186,186,0,0,True
+ETHUSDT,2024-01,186,186,0,0,True
+ETHUSDT,2025-01,186,186,0,0,True
+SOLUSDT,2024-01,186,186,0,0,True
+SOLUSDT,2025-01,186,186,0,0,True

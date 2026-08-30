@@ -1,0 +1,22 @@
+{
+  "checkpoint_schema_version": 4,
+  "generation_id": 185,
+  "projection_status": "available",
+  "quality": {
+    "asset_mismatch_count": 0,
+    "duplicate_timestamps": 0,
+    "end_match": true,
+    "expected_asset": "btc",
+    "expected_rows": 1828,
+    "interim_file": "data/interim/full_import/coinmetrics/btc_daily_context.csv",
+    "interim_status": "created",
+    "negative_metric_values": 0,
+    "non_finite_metric_values": 0,
+    "quality_pass": true,
+    "rows": 1828,
+    "spacing_errors": 0,
+    "start_match": true
+  },
+  "run_id": "616cd43cf4bf4c7ca96db0459e6723a6",
+  "scope_id": "FULL_IMPORT_2021_2025"
+}

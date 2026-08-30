@@ -1,0 +1,19 @@
+{
+  "primary_key_count": 145260,
+  "sealed_rows_recognized_for_key_integrity_only": 65790,
+  "segment_count": 5,
+  "split_rows": {
+    "development": {
+      "1h": 39528,
+      "4h": 9882
+    },
+    "final_test": {
+      "1h": 52632,
+      "4h": 13158
+    },
+    "validation": {
+      "1h": 24048,
+      "4h": 6012
+    }
+  }
+}

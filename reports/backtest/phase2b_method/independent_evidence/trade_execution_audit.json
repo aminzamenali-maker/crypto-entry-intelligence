@@ -1,0 +1,12 @@
+{
+  "feature_groups": 60,
+  "base_trade_count_before_costs": 88208,
+  "expected_trade_rows": 264624,
+  "actual_trade_rows": 264624,
+  "unique_expected_keys": 264624,
+  "signal_frequency_rows": 360,
+  "signal_frequency_expected_rows": 360,
+  "mismatch_counts": {},
+  "mismatch_examples": {},
+  "all_pass": true
+}

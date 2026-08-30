@@ -1,0 +1,27 @@
+{
+  "aggregate_result_rows": 240,
+  "baseline_count": 3,
+  "contexts": [
+    "primary_d1",
+    "sensitivity_d2"
+  ],
+  "cost_scenarios_bps": [
+    20,
+    30,
+    50
+  ],
+  "feature_count": 25,
+  "feature_rows": 131580,
+  "future_context_violations": 0,
+  "input_rows": 65790,
+  "interpretation_status": "NOT_YET_INTERPRETED",
+  "null_counts_by_timeframe_feature": {
+    "4h|taker_buy_share_1h": 26316
+  },
+  "post_result_parameter_changes": 0,
+  "result_rows": 720,
+  "signal_count": 5,
+  "split": "final_test",
+  "status": "FINAL_TEST_COMPLETED_EXACTLY_ONCE",
+  "trade_rows": 219624
+}

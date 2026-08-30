@@ -1,0 +1,773 @@
+{
+  "schema_version": 1,
+  "phase": "2A_METHOD_PREREGISTRATION",
+  "gate_2_status": "NOT_EVALUATED",
+  "research_question": "Liefern vorab definierte, ausschließlich aus zum Entscheidungszeitpunkt verfügbaren Informationen gebildete Einstiegssignale nach realistischen Transaktionskosten einen messbaren Informationswert gegenüber einfachen Baselines?",
+  "restrictions": {
+    "historical_data_only": true,
+    "network_access": false,
+    "allowed_hosts": [],
+    "write_outputs": false,
+    "calculate_features": false,
+    "calculate_signals": false,
+    "generate_positions": false,
+    "run_backtest": false,
+    "run_machine_learning": false
+  },
+  "market": {
+    "venue": "binance_spot",
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT"
+    ],
+    "position_mode": "long_flat",
+    "short_allowed": false,
+    "leverage": 1,
+    "funding_bps": 0,
+    "max_concurrent_positions_per_asset": 1,
+    "evaluate_assets_separately": true,
+    "report_aggregate_results": true
+  },
+  "timeframes": [
+    {
+      "id": "1h",
+      "role": "primary",
+      "bar_hours": 1,
+      "primary_holding_bars": 4,
+      "sensitivity_holding_bars": [
+        12,
+        24
+      ]
+    },
+    {
+      "id": "4h",
+      "role": "robustness",
+      "bar_hours": 4,
+      "primary_holding_bars": 1,
+      "sensitivity_holding_bars": [
+        3,
+        6
+      ]
+    }
+  ],
+  "execution": {
+    "signal_information_cutoff": "decision_time_utc_after_complete_bar_t",
+    "entry_price": "open_of_next_complete_bar_t_plus_1",
+    "same_signal_bar_close_execution_allowed": false,
+    "exit_price": "open_after_exact_holding_bars",
+    "mix_timeframe_execution_prices": false,
+    "require_full_horizon_inside_segment": true,
+    "boundary_safety_exit": "last_available_open_inside_segment",
+    "intrabar_stop_loss_take_profit": false,
+    "heikin_ashi_execution_price_allowed": false
+  },
+  "segment_policy": {
+    "group_keys": [
+      "symbol",
+      "timeframe",
+      "segment_id"
+    ],
+    "reset_all_rolling_state": true,
+    "require_full_minimum_history": true,
+    "allow_feature_across_segment": false,
+    "allow_signal_with_incomplete_history": false,
+    "allow_position_across_segment": false,
+    "allow_trade_touching_excluded_month": false,
+    "common_asset_availability_mask": true,
+    "excluded_months": [
+      "2021-02",
+      "2021-03",
+      "2021-04",
+      "2021-08",
+      "2021-09",
+      "2021-12",
+      "2023-03"
+    ]
+  },
+  "costs": {
+    "units": "basis_points",
+    "primary_scenario": "base_30bps",
+    "scenarios": [
+      {
+        "id": "low_20bps",
+        "entry_fee_bps": 5,
+        "exit_fee_bps": 5,
+        "entry_slippage_bps": 5,
+        "exit_slippage_bps": 5,
+        "round_trip_bps": 20
+      },
+      {
+        "id": "base_30bps",
+        "entry_fee_bps": 10,
+        "exit_fee_bps": 10,
+        "entry_slippage_bps": 5,
+        "exit_slippage_bps": 5,
+        "round_trip_bps": 30
+      },
+      {
+        "id": "high_50bps",
+        "entry_fee_bps": 15,
+        "exit_fee_bps": 15,
+        "entry_slippage_bps": 10,
+        "exit_slippage_bps": 10,
+        "round_trip_bps": 50
+      }
+    ],
+    "gross_and_net_reported_separately": true,
+    "free_primary_evaluation_allowed": false,
+    "net_return_formula": "exit_open*(1-exit_slippage)*(1-exit_fee)/(entry_open*(1+entry_slippage)*(1+entry_fee))-1"
+  },
+  "baselines": [
+    {
+      "id": "always_flat",
+      "definition": "Keine Marktposition, keine Trades, null Exposition und null Handelsrendite.",
+      "uses_market_indicator": false,
+      "uses_randomness": false,
+      "horizon_bound": false
+    },
+    {
+      "id": "segment_buy_and_hold",
+      "definition": "Einstieg am ersten verfügbaren Open und Ausstieg am letzten verfügbaren Open jedes Segments; Segmente werden nie verbunden.",
+      "uses_market_indicator": false,
+      "uses_randomness": false,
+      "horizon_bound": false
+    },
+    {
+      "id": "periodic_entry_baseline",
+      "definition": "Deterministischer Einstieg am ersten sicheren Open jeder UTC-ISO-Woche mit vollständigem Horizont im selben Segment.",
+      "uses_market_indicator": false,
+      "uses_randomness": false,
+      "horizon_bound": true
+    }
+  ],
+  "signals": [
+    {
+      "id": "trend_sma20_cross_above_sma50",
+      "family": "trend_momentum",
+      "timeframes": [
+        "1h",
+        "4h"
+      ],
+      "condition": "sma_ratio_20_50_t > 1 and sma_ratio_20_50_t_minus_1 <= 1",
+      "required_features": [
+        "sma_ratio_20_50"
+      ],
+      "parameter_selection_periods": [
+        "development",
+        "validation"
+      ]
+    },
+    {
+      "id": "momentum_return_12_positive",
+      "family": "trend_momentum",
+      "timeframes": [
+        "1h",
+        "4h"
+      ],
+      "condition": "past_return_12 > 0",
+      "required_features": [
+        "past_return_12"
+      ],
+      "parameter_selection_periods": [
+        "development",
+        "validation"
+      ]
+    },
+    {
+      "id": "breakout_close_above_prior_high_20",
+      "family": "breakout",
+      "timeframes": [
+        "1h",
+        "4h"
+      ],
+      "condition": "close_t > prior_high_20_shifted_t",
+      "required_features": [
+        "prior_high_20_shifted"
+      ],
+      "parameter_selection_periods": [
+        "development",
+        "validation"
+      ]
+    },
+    {
+      "id": "mean_reversion_rsi14_below_30",
+      "family": "mean_reversion",
+      "timeframes": [
+        "1h",
+        "4h"
+      ],
+      "condition": "rsi_14 < 30",
+      "required_features": [
+        "rsi_14"
+      ],
+      "parameter_selection_periods": [
+        "development",
+        "validation"
+      ]
+    },
+    {
+      "id": "mean_reversion_close_2pct_below_sma20",
+      "family": "mean_reversion",
+      "timeframes": [
+        "1h",
+        "4h"
+      ],
+      "condition": "close_to_sma20_distance <= -0.02",
+      "required_features": [
+        "close_to_sma20_distance"
+      ],
+      "parameter_selection_periods": [
+        "development",
+        "validation"
+      ]
+    }
+  ],
+  "feature_metadata_fields": [
+    "name",
+    "formula",
+    "input_fields",
+    "timeframes",
+    "lookback",
+    "minimum_history",
+    "available_at",
+    "null_policy",
+    "segment_reset",
+    "leakage_risk",
+    "purpose"
+  ],
+  "features": [
+    {
+      "name": "past_return_1",
+      "formula": "close_t / close_t_minus_1 - 1",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "bars"},
+      "minimum_history": 2,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "lag must never use a later close",
+      "purpose": "short backward momentum"
+    },
+    {
+      "name": "past_return_4",
+      "formula": "close_t / close_t_minus_4 - 1",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 4, "unit": "bars"},
+      "minimum_history": 5,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "lag must remain inside the segment",
+      "purpose": "approximately four-hour momentum on 1h"
+    },
+    {
+      "name": "past_return_12",
+      "formula": "close_t / close_t_minus_12 - 1",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 12, "unit": "bars"},
+      "minimum_history": 13,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "lag must remain inside the segment",
+      "purpose": "fixed medium momentum signal"
+    },
+    {
+      "name": "past_return_24",
+      "formula": "close_t / close_t_minus_24 - 1",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 24, "unit": "bars"},
+      "minimum_history": 25,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "lag must remain inside the segment",
+      "purpose": "longer backward momentum sensitivity"
+    },
+    {
+      "name": "sma_20",
+      "formula": "mean(close_t_minus_19 through close_t)",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 20, "unit": "bars"},
+      "minimum_history": 20,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "centered rolling windows are forbidden",
+      "purpose": "short trend level"
+    },
+    {
+      "name": "sma_50",
+      "formula": "mean(close_t_minus_49 through close_t)",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 50, "unit": "bars"},
+      "minimum_history": 50,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "centered rolling windows are forbidden",
+      "purpose": "long trend level"
+    },
+    {
+      "name": "sma_ratio_20_50",
+      "formula": "sma_20 / sma_50",
+      "input_fields": ["sma_20", "sma_50"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 50, "unit": "bars"},
+      "minimum_history": 50,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "both SMAs must use only closed bars in the same segment",
+      "purpose": "scale-free trend comparison"
+    },
+    {
+      "name": "rsi_14",
+      "formula": "Wilder RSI from 14 backward close changes; initial gain and loss are arithmetic means and later values use alpha 1/14",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 14, "unit": "returns"},
+      "minimum_history": 15,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only; RSI is 100 when average loss is zero and gain is positive",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "Wilder state must restart in every segment",
+      "purpose": "mean-reversion momentum"
+    },
+    {
+      "name": "atr_14_relative",
+      "formula": "Wilder mean of max(high-low, abs(high-prev_close), abs(low-prev_close)) over 14 true ranges divided by close_t",
+      "input_fields": ["high", "low", "close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 14, "unit": "true_ranges"},
+      "minimum_history": 15,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "previous close and Wilder state must stay inside the segment",
+      "purpose": "scale-free volatility"
+    },
+    {
+      "name": "rolling_volatility_24",
+      "formula": "sample standard deviation ddof=1 of the latest 24 one-bar simple returns",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 24, "unit": "returns"},
+      "minimum_history": 25,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "window must be backward and segment-local",
+      "purpose": "short realized volatility"
+    },
+    {
+      "name": "rolling_volatility_72",
+      "formula": "sample standard deviation ddof=1 of the latest 72 one-bar simple returns",
+      "input_fields": ["close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 72, "unit": "returns"},
+      "minimum_history": 73,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "window must be backward and segment-local",
+      "purpose": "longer realized volatility"
+    },
+    {
+      "name": "volume_zscore_24",
+      "formula": "(volume_t - mean(volume_t_minus_23 through volume_t)) / sample_std_ddof_1(same window)",
+      "input_fields": ["volume"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 24, "unit": "bars"},
+      "minimum_history": 24,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_or_zero_standard_deviation",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "window must be backward and segment-local",
+      "purpose": "relative activity"
+    },
+    {
+      "name": "candle_range_relative",
+      "formula": "(high_t - low_t) / open_t",
+      "input_fields": ["open", "high", "low"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "bars"},
+      "minimum_history": 1,
+      "available_at": "decision_time_utc",
+      "null_policy": "forbidden_for_positive_open",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "current complete candle only",
+      "purpose": "intrabar range description"
+    },
+    {
+      "name": "candle_body_relative",
+      "formula": "(close_t - open_t) / open_t",
+      "input_fields": ["open", "close"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "bars"},
+      "minimum_history": 1,
+      "available_at": "decision_time_utc",
+      "null_policy": "forbidden_for_positive_open",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "current complete candle only",
+      "purpose": "signed candle shape"
+    },
+    {
+      "name": "taker_buy_share_1h",
+      "formula": "taker_buy_base_volume / volume",
+      "input_fields": ["taker_buy_base_volume", "volume"],
+      "timeframes": ["1h"],
+      "lookback": {"value": 1, "unit": "bars"},
+      "minimum_history": 1,
+      "available_at": "decision_time_utc",
+      "null_policy": "zero_volume_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "not available for derived 4h contract",
+      "purpose": "buy-side activity share"
+    },
+    {
+      "name": "prior_high_20_shifted",
+      "formula": "max(high_t_minus_20 through high_t_minus_1)",
+      "input_fields": ["high"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 20, "unit": "prior_bars_excluding_t"},
+      "minimum_history": 21,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "rolling high must be shifted by exactly one bar",
+      "purpose": "breakout threshold"
+    },
+    {
+      "name": "close_to_sma20_distance",
+      "formula": "close_t / sma_20 - 1",
+      "input_fields": ["close", "sma_20"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 20, "unit": "bars"},
+      "minimum_history": 20,
+      "available_at": "decision_time_utc",
+      "null_policy": "warmup_only",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "SMA must be backward and segment-local",
+      "purpose": "mean-reversion distance"
+    },
+    {
+      "name": "context_price_usd",
+      "formula": "latest Coin Metrics PriceUSD whose selected availability timestamp is <= decision_time_utc",
+      "input_fields": ["PriceUSD", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 0, "unit": "asof_context"},
+      "minimum_history": 1,
+      "available_at": "selected_context_availability",
+      "null_policy": "forbidden_after_valid_asof_join",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "D1 and D2 require separate backward as-of joins",
+      "purpose": "BTC market context"
+    },
+    {
+      "name": "context_market_cap_usd",
+      "formula": "latest Coin Metrics CapMrktCurUSD whose selected availability timestamp is <= decision_time_utc",
+      "input_fields": ["CapMrktCurUSD", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 0, "unit": "asof_context"},
+      "minimum_history": 1,
+      "available_at": "selected_context_availability",
+      "null_policy": "forbidden_after_valid_asof_join",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "D1 and D2 require separate backward as-of joins",
+      "purpose": "BTC market-size context"
+    },
+    {
+      "name": "context_tx_count",
+      "formula": "latest Coin Metrics TxCnt whose selected availability timestamp is <= decision_time_utc",
+      "input_fields": ["TxCnt", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 0, "unit": "asof_context"},
+      "minimum_history": 1,
+      "available_at": "selected_context_availability",
+      "null_policy": "forbidden_after_valid_asof_join",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "D1 and D2 require separate backward as-of joins",
+      "purpose": "BTC network activity"
+    },
+    {
+      "name": "context_active_address_count",
+      "formula": "latest Coin Metrics AdrActCnt whose selected availability timestamp is <= decision_time_utc",
+      "input_fields": ["AdrActCnt", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 0, "unit": "asof_context"},
+      "minimum_history": 1,
+      "available_at": "selected_context_availability",
+      "null_policy": "forbidden_after_valid_asof_join",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "D1 and D2 require separate backward as-of joins",
+      "purpose": "BTC network participation"
+    },
+    {
+      "name": "context_price_usd_change",
+      "formula": "current available PriceUSD / previous distinct available PriceUSD inside the segment - 1",
+      "input_fields": ["PriceUSD", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "prior_distinct_context_observation"},
+      "minimum_history": 2,
+      "available_at": "selected_context_availability",
+      "null_policy": "first_distinct_context_observation_or_zero_denominator",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "never compare with a later context source timestamp",
+      "purpose": "backward BTC price-context change"
+    },
+    {
+      "name": "context_market_cap_usd_change",
+      "formula": "current available CapMrktCurUSD / previous distinct available CapMrktCurUSD inside the segment - 1",
+      "input_fields": ["CapMrktCurUSD", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "prior_distinct_context_observation"},
+      "minimum_history": 2,
+      "available_at": "selected_context_availability",
+      "null_policy": "first_distinct_context_observation_or_zero_denominator",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "never compare with a later context source timestamp",
+      "purpose": "backward market-cap change"
+    },
+    {
+      "name": "context_tx_count_change",
+      "formula": "current available TxCnt / previous distinct available TxCnt inside the segment - 1",
+      "input_fields": ["TxCnt", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "prior_distinct_context_observation"},
+      "minimum_history": 2,
+      "available_at": "selected_context_availability",
+      "null_policy": "first_distinct_context_observation_or_zero_denominator",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "never compare with a later context source timestamp",
+      "purpose": "backward transaction-count change"
+    },
+    {
+      "name": "context_active_address_count_change",
+      "formula": "current available AdrActCnt / previous distinct available AdrActCnt inside the segment - 1",
+      "input_fields": ["AdrActCnt", "context_source_timestamp_utc"],
+      "timeframes": ["1h", "4h"],
+      "lookback": {"value": 1, "unit": "prior_distinct_context_observation"},
+      "minimum_history": 2,
+      "available_at": "selected_context_availability",
+      "null_policy": "first_distinct_context_observation_or_zero_denominator",
+      "segment_reset": "symbol_timeframe_segment_id",
+      "leakage_risk": "never compare with a later context source timestamp",
+      "purpose": "backward active-address change"
+    }
+  ],
+  "targets_and_metrics": [
+    {
+      "id": "gross_return",
+      "role": "evaluation_only",
+      "definition": "exit_open / entry_open - 1"
+    },
+    {
+      "id": "net_return",
+      "role": "evaluation_only",
+      "definition": "gross execution adjusted by the complete selected fee and slippage scenario"
+    },
+    {
+      "id": "positive_net_outcome",
+      "role": "evaluation_or_optional_future_ml_target_only",
+      "definition": "1 only when net_return > 0, otherwise 0"
+    },
+    {
+      "id": "maximum_adverse_excursion",
+      "role": "evaluation_only",
+      "definition": "worst low relative to entry during the fixed holding window; intrabar order is unknown"
+    },
+    {
+      "id": "maximum_favorable_excursion",
+      "role": "evaluation_only",
+      "definition": "best high relative to entry during the fixed holding window; intrabar order is unknown"
+    },
+    {
+      "id": "trade_count",
+      "role": "evaluation_only",
+      "definition": "number of completed entries"
+    },
+    {
+      "id": "exposure_hours",
+      "role": "evaluation_only",
+      "definition": "sum of scheduled market hours in completed positions"
+    }
+  ],
+  "forbidden_feature_fields": [
+    "future_close",
+    "future_high",
+    "future_low",
+    "forward_return",
+    "gross_return",
+    "net_return",
+    "positive_net_outcome",
+    "maximum_adverse_excursion",
+    "maximum_favorable_excursion",
+    "exit_price",
+    "trade_outcome"
+  ],
+  "splits": [
+    {
+      "id": "development",
+      "start_inclusive_utc": "2021-01-01T00:00:00Z",
+      "end_exclusive_utc": "2023-01-01T00:00:00Z",
+      "parameter_selection_allowed": true,
+      "expected_rows": {"1h": 39528, "4h": 9882, "total": 49410}
+    },
+    {
+      "id": "validation",
+      "start_inclusive_utc": "2023-01-01T00:00:00Z",
+      "end_exclusive_utc": "2024-01-01T00:00:00Z",
+      "parameter_selection_allowed": true,
+      "expected_rows": {"1h": 24048, "4h": 6012, "total": 30060}
+    },
+    {
+      "id": "final_test",
+      "start_inclusive_utc": "2024-01-01T00:00:00Z",
+      "end_exclusive_utc": "2026-01-01T00:00:00Z",
+      "parameter_selection_allowed": false,
+      "evaluate_once_after_method_approval": true,
+      "expected_rows": {"1h": 52632, "4h": 13158, "total": 65790}
+    }
+  ],
+  "context_variants": [
+    {
+      "id": "primary_d1",
+      "availability_field": "available_from_utc_d1",
+      "lag_days": 1,
+      "join_rule": "available_from_utc_d1 <= decision_time_utc",
+      "recompute_asof_join": true
+    },
+    {
+      "id": "sensitivity_d2",
+      "availability_field": "available_from_utc_d2",
+      "lag_days": 2,
+      "join_rule": "available_from_utc_d2 <= decision_time_utc",
+      "recompute_asof_join": true,
+      "shift_primary_values_allowed": false
+    }
+  ],
+  "source_contract": {
+    "canonical_tables": [
+      {
+        "timeframe": "1h",
+        "path": "data/processed/full_import/market_context_1h.csv",
+        "schema_id": "canonical_market_context_1h_v1",
+        "row_count": 116208,
+        "sha256": "7468ce970381e34fc60a8227fb1594dee5435e88f5521f06ed82bfa15f5ce805"
+      },
+      {
+        "timeframe": "4h",
+        "path": "data/processed/full_import/market_context_4h.csv",
+        "schema_id": "canonical_market_context_4h_v1",
+        "row_count": 29052,
+        "sha256": "ab2ff44340b295d140db9fa1cb81cf5690dc7d78a44392599381c1d2e7edc91b"
+      }
+    ],
+    "context_table": {
+      "path": "data/interim/full_import/coinmetrics/btc_daily_context.csv",
+      "row_count": 1828,
+      "sha256": "e9ea2666a84ba8ef1eb38ea8abdb929602f76b02362ae37905cea888c57889f5"
+    }
+  },
+  "protected_phase1_artifacts": {
+    "individual_files": [
+      {
+        "id": "processed_1h",
+        "path": "data/processed/full_import/market_context_1h.csv",
+        "sha256": "7468ce970381e34fc60a8227fb1594dee5435e88f5521f06ed82bfa15f5ce805"
+      },
+      {
+        "id": "processed_4h",
+        "path": "data/processed/full_import/market_context_4h.csv",
+        "sha256": "ab2ff44340b295d140db9fa1cb81cf5690dc7d78a44392599381c1d2e7edc91b"
+      },
+      {
+        "id": "sqlite",
+        "path": "data/processed/full_import/sql/crypto_entry_intelligence.sqlite",
+        "sha256": "7f2e5deadd2c3c3e3f1820266f7f7b680def14d6ecda62c8dbbf5a11d9f0033e"
+      }
+    ],
+    "groups": [
+      {
+        "id": "raw_full_import",
+        "roots": ["data/raw/full_import"],
+        "files": [],
+        "expected_file_count": 361,
+        "expected_total_bytes": 7568270,
+        "expected_fingerprint": "0cb03f47844d0073701c255e9eedd893a6672158f39579c80348ac4d1b8b62e7"
+      },
+      {
+        "id": "interim_full_import",
+        "roots": ["data/interim/full_import"],
+        "files": [],
+        "expected_file_count": 319,
+        "expected_total_bytes": 26167940,
+        "expected_fingerprint": "14b92e6195e857417b71ebc2a9873a1b3a172d22e4fdcd1e6cbdcc5458686198"
+      },
+      {
+        "id": "phase1b_evidence",
+        "roots": [],
+        "files": [
+          "reports/full_import/raw_manifest.csv",
+          "reports/full_import/binance_quality_summary.csv",
+          "reports/full_import/source_anomalies.csv",
+          "reports/full_import/coinmetrics_quality_summary.json",
+          "reports/full_import/execution_checkpoint.json"
+        ],
+        "expected_file_count": 5,
+        "expected_total_bytes": 1093624,
+        "expected_fingerprint": "822a47948b1cbd7e90ccf871cca2813ea64f1a74d23ec79929a14f585929166d"
+      },
+      {
+        "id": "phase1c_a_evidence",
+        "roots": ["reports/processed"],
+        "files": [],
+        "expected_file_count": 4,
+        "expected_total_bytes": 20649,
+        "expected_fingerprint": "4f48e5863c92ea2a60e092f2de610eaf7c37f998ae2f2ac9f0d6574e805d4032"
+      },
+      {
+        "id": "phase1c_b_evidence",
+        "roots": ["reports/sql"],
+        "files": ["sql/001_schema.sql", "sql/002_views.sql"],
+        "expected_file_count": 6,
+        "expected_total_bytes": 29333,
+        "expected_fingerprint": "260f613662186647b99b4a7a5b64b9b7778a3a2398afaf0202151c21b28e846b"
+      },
+      {
+        "id": "phase1c_c_evidence",
+        "roots": ["reports/eda"],
+        "files": [],
+        "expected_file_count": 17,
+        "expected_total_bytes": 80795,
+        "expected_fingerprint": "2350a8a26044830be93a443b1ed1940cca27c98130e58de8a81bb2f64e9b77ac"
+      },
+      {
+        "id": "powerbi_contract_manifest",
+        "roots": [],
+        "files": [
+          "powerbi/POWER_BI_DATA_CONTRACT.md",
+          "powerbi/POWER_BI_MEASURES.md",
+          "powerbi/powerbi_model_manifest.csv"
+        ],
+        "expected_file_count": 3,
+        "expected_total_bytes": 9082,
+        "expected_fingerprint": "cc72600b743f68f4a861f4c18e6d5025e56327d6bdb2d5eede836b3f6580b850"
+      }
+    ]
+  },
+  "planned_evaluation_cells": {
+    "primary_horizon": 288,
+    "additional_horizon_sensitivities": 432,
+    "total_including_horizon_sensitivities": 720,
+    "definition": "Pre-registered strategy or baseline cells across assets, timeframes, context variants, cost scenarios and applicable horizons; not trades and not results."
+  }
+}

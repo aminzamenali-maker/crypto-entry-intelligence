@@ -1,0 +1,71 @@
+{
+  "central_checks_passed": true,
+  "checks": {
+    "expected_counts_match": true,
+    "no_direct_4h_downloads": true,
+    "no_direct_4h_tasks": true,
+    "no_duplicate_paths": true,
+    "no_duplicate_tasks": true,
+    "no_duplicate_urls": true,
+    "raw_no_overwrite": true,
+    "safe_project_paths": true
+  },
+  "coinmetrics": {
+    "asset": "btc",
+    "end_date_inclusive": "2025-12-31",
+    "frequency": "1d",
+    "metrics": [
+      "PriceUSD",
+      "CapMrktCurUSD",
+      "TxCnt",
+      "AdrActCnt"
+    ],
+    "primary_availability": "D+1 00:00 UTC",
+    "sensitivity_availability": "D+2 00:00 UTC",
+    "start_date_inclusive": "2020-12-30"
+  },
+  "counts": {
+    "assets": 3,
+    "binance_archive_files": 180,
+    "binance_archive_tasks": 180,
+    "binance_checksum_files": 180,
+    "binance_http_objects": 360,
+    "direct_4h_downloads": 0,
+    "direct_4h_task_count": 0,
+    "duplicate_target_path_count": 0,
+    "duplicate_task_count": 0,
+    "duplicate_url_count": 0,
+    "months_per_asset": 60,
+    "unique_binance_tasks": 180,
+    "unique_plan_paths": 361,
+    "unique_plan_urls": 361,
+    "unsafe_path_count": 0
+  },
+  "expected_rows": {
+    "binance_1h_per_asset": 43824,
+    "binance_1h_total": 131472,
+    "coinmetrics_daily": 1828,
+    "derived_4h_per_asset": 10956,
+    "derived_4h_total": 32868
+  },
+  "gate_1": "NOT_EVALUATED",
+  "mode": "dry-run",
+  "network_used": false,
+  "next_gate": "Gate 1 wird erst nach einem separat erlaubten, vollstaendig geprueften Import bewertet.",
+  "schema_version": 1,
+  "scope": {
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT"
+    ],
+    "derived_intervals": [
+      "4h"
+    ],
+    "download_interval": "1h",
+    "end_exclusive_utc": "2026-01-01T00:00:00Z",
+    "market": "spot",
+    "start_utc": "2021-01-01T00:00:00Z"
+  },
+  "scope_id": "FULL_IMPORT_2021_2025"
+}

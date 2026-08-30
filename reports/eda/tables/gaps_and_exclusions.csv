@@ -1,0 +1,16 @@
+category,value,unit,scope
+actual_source_gap_hours,42,asset-hours,real missing Binance source rows
+conservative_excluded_calendar_hours,15264,asset-hours,21 excluded asset-months
+accepted_temporal_coverage,88.39,percent,159 accepted asset-months
+excluded_temporal_coverage,11.61,percent,21 excluded asset-months
+accepted_asset_months,159,asset-months,three assets
+excluded_asset_months,21,asset-months,seven calendar months across three assets
+accepted_1h_rows,116208,rows,SQL fact
+accepted_4h_rows,29052,rows,SQL fact
+excluded_calendar_month,2021-02,YYYY-MM,all three assets
+excluded_calendar_month,2021-03,YYYY-MM,all three assets
+excluded_calendar_month,2021-04,YYYY-MM,all three assets
+excluded_calendar_month,2021-08,YYYY-MM,all three assets
+excluded_calendar_month,2021-09,YYYY-MM,all three assets
+excluded_calendar_month,2021-12,YYYY-MM,all three assets
+excluded_calendar_month,2023-03,YYYY-MM,all three assets

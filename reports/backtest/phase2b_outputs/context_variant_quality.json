@@ -1,0 +1,10 @@
+{
+  "feature_rows_per_variant": 79470,
+  "future_context_violations": 0,
+  "independent_backward_asof_joins": true,
+  "shifted_d1_values_used_for_d2": false,
+  "variants": [
+    "primary_d1",
+    "sensitivity_d2"
+  ]
+}

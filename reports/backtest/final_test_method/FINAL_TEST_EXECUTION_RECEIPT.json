@@ -1,0 +1,20 @@
+{
+  "approved_method_commit": "648a74198a97e4e57d839a05db2af55fd1229190",
+  "automatic_retry_allowed": false,
+  "bundle_snapshot_sha256": "c9366bf6a050df7c5701194f5ba8dbfd9e3199aff1b1ee82ca02a4b93f9d4d8e",
+  "completed_at_utc": "2026-08-04T05:02:37.613368Z",
+  "execution_head": "d4bc6dc149705ddcb881bdddf3d4fda4d0b373be",
+  "final_config_sha256": "7983d955168afed2ad449f6d525880972e18cfdc8170cb497f9de79b528e3a1e",
+  "final_runner_sha256": "189bab4de61f273e61cf62956ca4353ed00970b9b764b625fbfb2150492f845c",
+  "post_result_parameter_changes_allowed": false,
+  "started_at_utc": "2026-08-04T05:01:23.257061Z",
+  "status": "FINAL_TEST_COMPLETED_EXACTLY_ONCE",
+  "summary": {
+    "aggregate_result_rows": 240,
+    "feature_rows": 131580,
+    "files": 14,
+    "input_rows": 65790,
+    "result_rows": 720,
+    "trade_rows": 219624
+  }
+}

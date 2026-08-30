@@ -1,0 +1,14 @@
+{
+  "gate": "Gate 0",
+  "evaluated_at_utc": "2026-07-27T12:11:13+00:00",
+  "criteria": {
+    "primaere_marktquelle_reproduzierbar": true,
+    "ergaenzende_quelle_reproduzierbar": true,
+    "zeitlich_ausgerichtet_ohne_zukunftsdaten": true,
+    "zeitrahmen_konsistent": true,
+    "quellenvergleich_dokumentiert": true,
+    "empfohlene_zeitraumgrenzen_erreichbar": true
+  },
+  "passed": true,
+  "decision": "bestanden: Vollimport darf als naechstes Arbeitspaket geplant werden"
+}

@@ -1,0 +1,2 @@
+market_rows_before_join,rows_after_join,joined_context_rows,join_coverage_pct,join_row_loss,future_context_rows,max_context_staleness_hours,availability_rule,join_pass
+5580,5580,5580,100.0,0,0,24.0,Coin-Metrics-Tageswert D ist ab D+1 00:00 UTC verfuegbar; as-of-Join auf Kerzenschluss.,True

@@ -1,0 +1,18 @@
+{
+  "feature_aggregates": 0,
+  "feature_rows": 0,
+  "final_test_feature_rows_evaluated": 0,
+  "final_test_metrics_evaluated": 0,
+  "final_test_signals_evaluated": 0,
+  "final_test_status": "SEALED_NOT_EVALUATED",
+  "final_test_trades_evaluated": 0,
+  "gross_returns": 0,
+  "input_rows_recognized_for_key_integrity_only": 65790,
+  "net_returns": 0,
+  "performance_metrics": 0,
+  "positions": 0,
+  "signal_counts": 0,
+  "split": "final_test",
+  "status": "SEALED_NOT_EVALUATED",
+  "trades": 0
+}

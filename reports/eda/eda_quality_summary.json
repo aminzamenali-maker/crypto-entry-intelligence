@@ -1,0 +1,137 @@
+{
+  "build_status": "CREATED",
+  "coverage": {
+    "accepted_asset_months": 159,
+    "accepted_percent": 88.39,
+    "actual_source_gap_hours": 42,
+    "conservative_excluded_asset_calendar_hours": 15264,
+    "excluded_asset_months": 21,
+    "excluded_calendar_months": [
+      "2021-02",
+      "2021-03",
+      "2021-04",
+      "2021-08",
+      "2021-09",
+      "2021-12",
+      "2023-03"
+    ],
+    "excluded_percent": 11.61
+  },
+  "eda": {
+    "asset_timeframe_counts": {
+      "BTCUSDT|1h": 38736,
+      "BTCUSDT|4h": 9684,
+      "ETHUSDT|1h": 38736,
+      "ETHUSDT|4h": 9684,
+      "SOLUSDT|1h": 38736,
+      "SOLUSDT|4h": 9684
+    },
+    "close_to_close_null_count": 30,
+    "context_age_controls": {
+      "context_age_hours|1h": {
+        "max": 47.0,
+        "median": 35.5,
+        "min": 24.0
+      },
+      "context_age_hours|4h": {
+        "max": 44.0,
+        "median": 34.0,
+        "min": 24.0
+      },
+      "context_age_since_d1_hours|1h": {
+        "max": 23.0,
+        "median": 11.5,
+        "min": 0.0
+      },
+      "context_age_since_d1_hours|4h": {
+        "max": 20.0,
+        "median": 10.0,
+        "min": 0.0
+      }
+    },
+    "context_unique_source_timestamps": 1619,
+    "excluded_month_rows": 0,
+    "extreme_value_policy": "retained_without_winsorization",
+    "fact_rows": 145260,
+    "figure_count": 6,
+    "future_context_violations": 0,
+    "orphan_foreign_keys": 0,
+    "primary_key_duplicates": 0,
+    "rows_1h": 116208,
+    "rows_4h": 29052,
+    "segment_count": 5,
+    "segment_start_null_count": 30,
+    "table_count": 7
+  },
+  "gate_status": {
+    "G1-13": "NOT_EVALUATED",
+    "Gate 1": "NOT_EVALUATED"
+  },
+  "policy_id": "phase1c_c_descriptive_eda_powerbi_v2",
+  "powerbi_export": {
+    "dimension_rows": {
+      "dim_asset.csv": 3,
+      "dim_calendar.csv": 1826,
+      "dim_segment.csv": 5,
+      "dim_timeframe.csv": 2
+    },
+    "fact_rows": 145260,
+    "files": [
+      {
+        "creation_status": "CREATED",
+        "filename": "fact_market_context_eda.csv",
+        "row_count": 145260,
+        "schema_id": "powerbi_fact_market_context_eda_v2",
+        "sha256": "adba19eb15aa1c7861539291c49e6864daeb275fdb167d2332b16a5204fbbe22",
+        "source_database_logical_fingerprint": "cbf6d93ebb86a591764a4e07327152cba24c2033c9bed57b5bd14e69abf1e367",
+        "table_role": "fact"
+      },
+      {
+        "creation_status": "CREATED",
+        "filename": "dim_asset.csv",
+        "row_count": 3,
+        "schema_id": "powerbi_dim_asset_v1",
+        "sha256": "e68229dd7761637454afa52e25a0202623bbb4112fc3595c61e4c0ec9232a1b2",
+        "source_database_logical_fingerprint": "cbf6d93ebb86a591764a4e07327152cba24c2033c9bed57b5bd14e69abf1e367",
+        "table_role": "dimension"
+      },
+      {
+        "creation_status": "CREATED",
+        "filename": "dim_segment.csv",
+        "row_count": 5,
+        "schema_id": "powerbi_dim_segment_v1",
+        "sha256": "6b8fc1c076a830e515a2f7c0f345a47b5b2c72bd4dde3a273c67ccff2edee37e",
+        "source_database_logical_fingerprint": "cbf6d93ebb86a591764a4e07327152cba24c2033c9bed57b5bd14e69abf1e367",
+        "table_role": "dimension"
+      },
+      {
+        "creation_status": "CREATED",
+        "filename": "dim_calendar.csv",
+        "row_count": 1826,
+        "schema_id": "powerbi_dim_calendar_v2",
+        "sha256": "4101f993d17ad3e864eb94214184fe93328bb52a70b73c635d2281e55941eeec",
+        "source_database_logical_fingerprint": "cbf6d93ebb86a591764a4e07327152cba24c2033c9bed57b5bd14e69abf1e367",
+        "table_role": "dimension"
+      },
+      {
+        "creation_status": "CREATED",
+        "filename": "dim_timeframe.csv",
+        "row_count": 2,
+        "schema_id": "powerbi_dim_timeframe_v1",
+        "sha256": "6d038fd12cd0a830ecd2c748c905a330b1d8a09790548b37816d624f7caf5c9a",
+        "source_database_logical_fingerprint": "cbf6d93ebb86a591764a4e07327152cba24c2033c9bed57b5bd14e69abf1e367",
+        "table_role": "dimension"
+      }
+    ],
+    "relationship_policy": "unique_dimension_1_to_many_single_direction_v1"
+  },
+  "schema_version": 2,
+  "source_validation": {
+    "G1-10": "PASS",
+    "G1-12": "PASS",
+    "database_sha256": "7f2e5deadd2c3c3e3f1820266f7f7b680def14d6ecda62c8dbbf5a11d9f0033e",
+    "integrity_check": "ok",
+    "logical_fingerprint": "cbf6d93ebb86a591764a4e07327152cba24c2033c9bed57b5bd14e69abf1e367",
+    "sql_cache_status": "CACHED_VALID"
+  }
+}

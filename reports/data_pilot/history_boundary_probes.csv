@@ -1,0 +1,9 @@
+source,symbol_or_asset,boundary,probe_date_or_month,http_status,evidence,coverage_pass
+Binance Public Data,BTCUSDT,start,2021-01,200,SHA-256-Metadatei vorhanden: a2fa12bec12d942e58dbc7fb223973bd2173dfccf8e09edc501bda40b3c3638e,True
+Binance Public Data,BTCUSDT,end,2025-12,200,SHA-256-Metadatei vorhanden: d546c6e44b443e34cef5122043c5cdd3b9c76980e23cc408dafd9f6f76d65c05,True
+Binance Public Data,ETHUSDT,start,2021-01,200,SHA-256-Metadatei vorhanden: 01d6bb8175fb847a256ca1cc14dce06194a86c740d7edc951a5d2835aba9b577,True
+Binance Public Data,ETHUSDT,end,2025-12,200,SHA-256-Metadatei vorhanden: 7a7a35ce7b9be9bafa0a00c47370acc57a48329a3289c21cb19f1185f6430fdb,True
+Binance Public Data,SOLUSDT,start,2021-01,200,SHA-256-Metadatei vorhanden: ea5f900dec5986dc42bb617b53b5b1fa3e995cb2eedb30b0e4cd97498e8a0e5c,True
+Binance Public Data,SOLUSDT,end,2025-12,200,SHA-256-Metadatei vorhanden: d8259dd2f6758b7cd4166564bf8aa7219d6aa140ecf68a3667749da41d4c2560,True
+Coin Metrics Community API,btc,start,2020-12-31,200,1 vollstaendige Tageszeile(n),True
+Coin Metrics Community API,btc,end,2025-12-31,200,1 vollstaendige Tageszeile(n),True

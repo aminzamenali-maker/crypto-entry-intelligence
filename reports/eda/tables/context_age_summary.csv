@@ -1,0 +1,13 @@
+symbol,timeframe,metric,count,mean,std,min,q25,median,q75,max,null_count
+BTCUSDT,1h,context_age_hours,38736,35.5,6.92227590497951,24,29.75,35.5,41.25,47,0
+BTCUSDT,1h,context_age_since_d1_hours,38736,11.5,6.92227590497951,0,5.75,11.5,17.25,23,0
+BTCUSDT,4h,context_age_hours,9684,34,6.8316532486417,24,28,34,40,44,0
+BTCUSDT,4h,context_age_since_d1_hours,9684,10,6.8316532486417,0,4,10,16,20,0
+ETHUSDT,1h,context_age_hours,38736,35.5,6.92227590497951,24,29.75,35.5,41.25,47,0
+ETHUSDT,1h,context_age_since_d1_hours,38736,11.5,6.92227590497951,0,5.75,11.5,17.25,23,0
+ETHUSDT,4h,context_age_hours,9684,34,6.8316532486417,24,28,34,40,44,0
+ETHUSDT,4h,context_age_since_d1_hours,9684,10,6.8316532486417,0,4,10,16,20,0
+SOLUSDT,1h,context_age_hours,38736,35.5,6.92227590497951,24,29.75,35.5,41.25,47,0
+SOLUSDT,1h,context_age_since_d1_hours,38736,11.5,6.92227590497951,0,5.75,11.5,17.25,23,0
+SOLUSDT,4h,context_age_hours,9684,34,6.8316532486417,24,28,34,40,44,0
+SOLUSDT,4h,context_age_since_d1_hours,9684,10,6.8316532486417,0,4,10,16,20,0

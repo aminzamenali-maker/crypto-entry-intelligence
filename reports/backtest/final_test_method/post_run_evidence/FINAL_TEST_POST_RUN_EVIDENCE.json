@@ -1,0 +1,245 @@
+{
+  "approved_method_commit": "648a74198a97e4e57d839a05db2af55fd1229190",
+  "automatic_retry_used": false,
+  "completed_at_utc": "2026-08-04T05:02:37.613368Z",
+  "context_sensitivity": {
+    "comparison_rows": 360,
+    "nonzero_average_net_return_deltas": 0,
+    "nonzero_trade_count_deltas": 0
+  },
+  "environment": {
+    "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+    "python_version": "3.13.5 (main, May  5 2026, 21:05:52) [GCC 14.2.0]",
+    "runtime_modules_import_pandas": false
+  },
+  "execution_head": "d4bc6dc149705ddcb881bdddf3d4fda4d0b373be",
+  "final_baselines_primary_horizon": [
+    {
+      "average_gross_return": null,
+      "average_net_return": null,
+      "hit_rate": null,
+      "holding_bars": null,
+      "strategy_id": "always_flat",
+      "timeframe": "1h",
+      "trade_count": 0
+    },
+    {
+      "average_gross_return": -0.0009340765232489064,
+      "average_net_return": -0.0039267837365054604,
+      "hit_rate": 0.4444444444444444,
+      "holding_bars": 4,
+      "strategy_id": "periodic_entry_baseline",
+      "timeframe": "1h",
+      "trade_count": 315
+    },
+    {
+      "average_gross_return": 0.5356469210220559,
+      "average_net_return": 0.5310468826166175,
+      "hit_rate": 1.0,
+      "holding_bars": null,
+      "strategy_id": "segment_buy_and_hold",
+      "timeframe": "1h",
+      "trade_count": 3
+    },
+    {
+      "average_gross_return": null,
+      "average_net_return": null,
+      "hit_rate": null,
+      "holding_bars": null,
+      "strategy_id": "always_flat",
+      "timeframe": "4h",
+      "trade_count": 0
+    },
+    {
+      "average_gross_return": -0.0009340765232489064,
+      "average_net_return": -0.0039267837365054604,
+      "hit_rate": 0.4444444444444444,
+      "holding_bars": 1,
+      "strategy_id": "periodic_entry_baseline",
+      "timeframe": "4h",
+      "trade_count": 315
+    },
+    {
+      "average_gross_return": 0.5317305854418037,
+      "average_net_return": 0.5271422784401348,
+      "hit_rate": 1.0,
+      "holding_bars": null,
+      "strategy_id": "segment_buy_and_hold",
+      "timeframe": "4h",
+      "trade_count": 3
+    }
+  ],
+  "final_cost_sensitivity_primary_horizon": [
+    {
+      "average_gross_return": 0.00014314887755628334,
+      "average_net_return": -0.0018551386331160605,
+      "cost_scenario": "low_20bps",
+      "hit_rate": 0.41427937915742796,
+      "holding_bars": 4,
+      "timeframe": "1h",
+      "trades": 11275
+    },
+    {
+      "average_gross_return": 0.00014314887755628334,
+      "average_net_return": -0.0028527851700377513,
+      "cost_scenario": "base_30bps",
+      "hit_rate": 0.37631929046563195,
+      "holding_bars": 4,
+      "timeframe": "1h",
+      "trades": 11275
+    },
+    {
+      "average_gross_return": 0.00014314887755628334,
+      "average_net_return": -0.004845088790305236,
+      "cost_scenario": "high_50bps",
+      "hit_rate": 0.3093569844789357,
+      "holding_bars": 4,
+      "timeframe": "1h",
+      "trades": 11275
+    },
+    {
+      "average_gross_return": 0.0003270105380305566,
+      "average_net_return": -0.0016716443285150252,
+      "cost_scenario": "low_20bps",
+      "hit_rate": 0.4238927011852776,
+      "holding_bars": 1,
+      "timeframe": "4h",
+      "trades": 6412
+    },
+    {
+      "average_gross_return": 0.0003270105380305566,
+      "average_net_return": -0.00266947426813167,
+      "cost_scenario": "base_30bps",
+      "hit_rate": 0.38615096693699313,
+      "holding_bars": 1,
+      "timeframe": "4h",
+      "trades": 6412
+    },
+    {
+      "average_gross_return": 0.0003270105380305566,
+      "average_net_return": -0.004662144144221833,
+      "cost_scenario": "high_50bps",
+      "hit_rate": 0.3165938864628821,
+      "holding_bars": 1,
+      "timeframe": "4h",
+      "trades": 6412
+    }
+  ],
+  "final_test_status": "FINAL_TEST_COMPLETED_EXACTLY_ONCE",
+  "manifest": {
+    "bundle_files": 14,
+    "bundle_total_bytes": 162364781,
+    "calculated_bundle_snapshot_sha256": "c9366bf6a050df7c5701194f5ba8dbfd9e3199aff1b1ee82ca02a4b93f9d4d8e",
+    "entries": 13,
+    "errors": [],
+    "receipt_bundle_snapshot_sha256": "c9366bf6a050df7c5701194f5ba8dbfd9e3199aff1b1ee82ca02a4b93f9d4d8e"
+  },
+  "part_files": [],
+  "post_result_parameter_changes": 0,
+  "primary_approximately_four_hour_horizon": [
+    {
+      "average_gross_return": 0.0003444533898709027,
+      "average_net_return": -0.00265208366644549,
+      "hit_rate": 0.3952236797847292,
+      "holding_bars": 4,
+      "split": "development",
+      "timeframe": "1h",
+      "trades": 8919
+    },
+    {
+      "average_gross_return": -0.00045881556882357684,
+      "average_net_return": -0.003452946428761553,
+      "hit_rate": 0.3958123615864707,
+      "holding_bars": 1,
+      "split": "development",
+      "timeframe": "4h",
+      "trades": 4967
+    },
+    {
+      "average_gross_return": 0.0010585488561606542,
+      "average_net_return": -0.0019401272768699979,
+      "hit_rate": 0.3390512494705633,
+      "holding_bars": 4,
+      "split": "validation",
+      "timeframe": "1h",
+      "trades": 4722
+    },
+    {
+      "average_gross_return": 0.0013851208234538267,
+      "average_net_return": -0.0016145335576175223,
+      "hit_rate": 0.3488372093023256,
+      "holding_bars": 1,
+      "split": "validation",
+      "timeframe": "4h",
+      "trades": 2623
+    },
+    {
+      "average_gross_return": 0.00014314887755628334,
+      "average_net_return": -0.0028527851700377513,
+      "hit_rate": 0.37631929046563195,
+      "holding_bars": 4,
+      "split": "final_test",
+      "timeframe": "1h",
+      "trades": 11275
+    },
+    {
+      "average_gross_return": 0.0003270105380305566,
+      "average_net_return": -0.00266947426813167,
+      "hit_rate": 0.38615096693699313,
+      "holding_bars": 1,
+      "split": "final_test",
+      "timeframe": "4h",
+      "trades": 6412
+    }
+  ],
+  "receipt_state_identical": true,
+  "runtime_seconds": 74.356307,
+  "stability": {
+    "positive_average_net_combinations_by_split": {
+      "development": 0,
+      "final_test": 3,
+      "validation": 13
+    },
+    "positive_final_test_combinations": [
+      {
+        "development_average_net_return": -0.0084059851837706,
+        "final_test_average_net_return": 0.001896780757470637,
+        "holding_bars": 6,
+        "strategy_id": "trend_sma20_cross_above_sma50",
+        "timeframe": "4h",
+        "trades": 156,
+        "validation_average_net_return": -0.004398352955903917
+      },
+      {
+        "development_average_net_return": -0.0021939310564351383,
+        "final_test_average_net_return": 0.00024039802718569536,
+        "holding_bars": 6,
+        "strategy_id": "mean_reversion_rsi14_below_30",
+        "timeframe": "4h",
+        "trades": 165,
+        "validation_average_net_return": 0.000786840596645481
+      },
+      {
+        "development_average_net_return": -0.006216437879291916,
+        "final_test_average_net_return": 0.00011168285596355544,
+        "holding_bars": 3,
+        "strategy_id": "trend_sma20_cross_above_sma50",
+        "timeframe": "4h",
+        "trades": 156,
+        "validation_average_net_return": -0.0034755585343976773
+      }
+    ],
+    "positive_in_all_three_splits": [],
+    "signal_horizon_combinations": 30
+  },
+  "started_at_utc": "2026-08-04T05:01:23.257061Z",
+  "status": "PASS",
+  "summary": {
+    "aggregate_result_rows": 240,
+    "feature_rows": 131580,
+    "files": 14,
+    "input_rows": 65790,
+    "result_rows": 720,
+    "trade_rows": 219624
+  }
+}

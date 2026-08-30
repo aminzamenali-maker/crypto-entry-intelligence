@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "scope_id": "FULL_IMPORT_2021_2025",
+  "project_timezone": "UTC",
+  "user_agent": "DSP-Crypto-Entry-Intelligence/1.0 (historical research; Amin)",
+  "binance": {
+    "base_url": "https://data.binance.vision/data/spot/monthly/klines",
+    "market": "spot",
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT"
+    ],
+    "download_interval": "1h",
+    "download_interval_seconds": 3600,
+    "derived_intervals": [
+      "4h"
+    ],
+    "start_utc": "2021-01-01T00:00:00Z",
+    "end_exclusive_utc": "2026-01-01T00:00:00Z"
+  },
+  "coinmetrics": {
+    "endpoint": "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics",
+    "asset": "btc",
+    "frequency": "1d",
+    "start_date_inclusive": "2020-12-30",
+    "end_date_inclusive": "2025-12-31",
+    "metrics": [
+      "PriceUSD",
+      "CapMrktCurUSD",
+      "TxCnt",
+      "AdrActCnt"
+    ],
+    "page_size": 10000,
+    "max_pages": 100,
+    "primary_availability_lag_days": 1,
+    "sensitivity_availability_lag_days": 2
+  },
+  "paths": {
+    "raw_root": "data/raw/full_import",
+    "interim_root": "data/interim/full_import",
+    "processed_root": "data/processed/full_import",
+    "report_root": "reports/full_import"
+  },
+  "network": {
+    "timeout_seconds": 90,
+    "retry_total": 4,
+    "backoff_factor": 1.0
+  },
+  "safety": {
+    "default_mode": "dry-run",
+    "execute_confirmation": "FULL_IMPORT_2021_2025",
+    "no_overwrite_raw": true,
+    "no_overwrite_interim": true,
+    "no_overwrite_processed": true
+  },
+  "expected": {
+    "months_per_asset": 60,
+    "binance_archive_tasks": 180,
+    "binance_checksum_files": 180,
+    "binance_http_objects": 360,
+    "binance_1h_rows_per_asset": 43824,
+    "binance_1h_rows_total": 131472,
+    "derived_4h_rows_per_asset": 10956,
+    "derived_4h_rows_total": 32868,
+    "coinmetrics_daily_rows": 1828
+  }
+}

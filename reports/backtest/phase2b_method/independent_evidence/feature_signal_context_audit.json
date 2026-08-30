@@ -1,0 +1,26 @@
+{
+  "source_split_counts": {
+    "development|1h": 39528,
+    "development|4h": 9882,
+    "final_test|1h": 52632,
+    "final_test|4h": 13158,
+    "validation|1h": 24048,
+    "validation|4h": 6012
+  },
+  "dev_validation_unique_market_rows": 79470,
+  "feature_output_rows": {
+    "1h|primary_d1": 63576,
+    "1h|sensitivity_d2": 63576,
+    "4h|primary_d1": 15894,
+    "4h|sensitivity_d2": 15894
+  },
+  "rows_checked": 79470,
+  "market_feature_value_checks": 2701980,
+  "context_feature_value_checks": 1271520,
+  "signal_boolean_checks": 794700,
+  "context_rows_checked": 158940,
+  "excluded_month_rows_found": 0,
+  "mismatch_counts": {},
+  "mismatch_examples": {},
+  "all_pass": true
+}

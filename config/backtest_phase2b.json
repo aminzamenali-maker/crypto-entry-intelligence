@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "phase": "2B_OFFLINE_CORE_IMPLEMENTATION",
+  "gate_2_status": "NOT_EVALUATED",
+  "phase2a_contract_path": "config/backtest.json",
+  "phase2a_contract_sha256": "e4deb6b6ad56a8517f86822d85086524c3cd3c29890d9754453163d7f1107f04",
+  "gate1_evidence_path": "reports/full_import/GATE1_ACCEPTANCE_CRITERIA.md",
+  "required_gate1_status": "PASS_WITH_DOCUMENTED_SOURCE_ANOMALIES",
+  "restrictions": {
+    "historical_data_only": true,
+    "network_access": false,
+    "allowed_hosts": [],
+    "evaluate_final_test": false,
+    "live_orders": false,
+    "shorts": false,
+    "leverage": false,
+    "funding": false,
+    "machine_learning": false,
+    "parameter_optimization": false,
+    "overwrite_existing_outputs": false
+  },
+  "output": {
+    "data_root": "data/processed/phase2b",
+    "report_root": "reports/backtest/phase2b_outputs"
+  },
+  "policy": {
+    "policy_id": "phase2b_preregistered_long_flat_core_v1",
+    "implementation_policy_id": "phase2b_fsum_float17_provenance_v2",
+    "evaluated_splits": [
+      "development",
+      "validation"
+    ],
+    "sealed_split": "final_test",
+    "split_boundary_positions_allowed": false,
+    "non_overlapping_position_rule": "per_symbol_timeframe_context_strategy_horizon",
+    "signal_entry_rule": "signal_after_close_t_entry_open_t_plus_1",
+    "signal_exit_rule": "exit_open_after_exact_complete_holding_bars",
+    "periodic_baseline_rule": "first_open_of_each_utc_iso_week_with_complete_horizon",
+    "segment_buy_hold_rule": "first_open_to_last_open_inside_each_segment_and_split",
+    "cumulative_return_capital_assumption": "one_unit_fully_reinvested_sequential_non_overlapping_trades_per_cell",
+    "drawdown_equity_rule": "after_trade_compounded_equity_starting_at_one",
+    "profit_factor_null_rule": "null_for_no_trades_or_no_losses",
+    "uncertainty_rule": "trade_return_dispersion_and_segment_mean_range_without_iid_claim",
+    "float_serialization": ".17g",
+    "sma_calculation_rule": "math.fsum(window)/window_length",
+    "cache_rule": "complete_byte_identical_bundle_or_fail_closed"
+  },
+  "expected_split_rows": {
+    "development": {
+      "1h": 39528,
+      "4h": 9882,
+      "total": 49410
+    },
+    "validation": {
+      "1h": 24048,
+      "4h": 6012,
+      "total": 30060
+    },
+    "final_test": {
+      "1h": 52632,
+      "4h": 13158,
+      "total": 65790
+    }
+  },
+  "protected_phase2a_evidence": {
+    "files": [
+      "config/backtest.json",
+      "reports/backtest/PHASE2_METHOD_PLAN.md",
+      "reports/backtest/FEATURE_SIGNAL_DICTIONARY.md",
+      "reports/backtest/GATE2_ACCEPTANCE_CRITERIA.md",
+      "src/backtest_contract.py",
+      "tests/test_backtest_contract.py"
+    ],
+    "expected_file_count": 6,
+    "expected_total_bytes": 90113,
+    "expected_fingerprint": "f06bc81a7a698a8b019cd0cdf1c7205bd93d2783a91d624aa72e9410a23f6406"
+  }
+}

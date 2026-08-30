@@ -1,0 +1,78 @@
+{
+  "outputs_recorded_in": "final_test_manifest.csv",
+  "provenance": {
+    "approved_method_commit": "648a74198a97e4e57d839a05db2af55fd1229190",
+    "execution_head": "d4bc6dc149705ddcb881bdddf3d4fda4d0b373be",
+    "final_config_sha256": "7983d955168afed2ad449f6d525880972e18cfdc8170cb497f9de79b528e3a1e",
+    "final_runner_sha256": "189bab4de61f273e61cf62956ca4353ed00970b9b764b625fbfb2150492f845c",
+    "network_access": false,
+    "parameter_changes_after_gate2": 0,
+    "phase2b_provenance": {
+      "backtest_pipeline_sha256": "8a8ab18b5575d5366429683cede5253bb3bd4640964671da8d879848d124d28c",
+      "final_test_status": "SEALED_NOT_EVALUATED",
+      "float_serialization_rule": ".17g",
+      "implementation_policy_id": "phase2b_fsum_float17_provenance_v2",
+      "phase2a_contract_sha256": "e4deb6b6ad56a8517f86822d85086524c3cd3c29890d9754453163d7f1107f04",
+      "phase2b_config_sha256": "16382dc037b56fa30b5cfabff2dc1f336dab81b13c62cffafcef44f5c391a78e",
+      "protected_inputs": {
+        "groups": {
+          "interim_full_import": {
+            "file_count": 319,
+            "fingerprint": "14b92e6195e857417b71ebc2a9873a1b3a172d22e4fdcd1e6cbdcc5458686198",
+            "total_bytes": 26167940
+          },
+          "phase1b_evidence": {
+            "file_count": 5,
+            "fingerprint": "822a47948b1cbd7e90ccf871cca2813ea64f1a74d23ec79929a14f585929166d",
+            "total_bytes": 1093624
+          },
+          "phase1c_a_evidence": {
+            "file_count": 4,
+            "fingerprint": "4f48e5863c92ea2a60e092f2de610eaf7c37f998ae2f2ac9f0d6574e805d4032",
+            "total_bytes": 20649
+          },
+          "phase1c_b_evidence": {
+            "file_count": 6,
+            "fingerprint": "260f613662186647b99b4a7a5b64b9b7778a3a2398afaf0202151c21b28e846b",
+            "total_bytes": 29333
+          },
+          "phase1c_c_evidence": {
+            "file_count": 17,
+            "fingerprint": "2350a8a26044830be93a443b1ed1940cca27c98130e58de8a81bb2f64e9b77ac",
+            "total_bytes": 80795
+          },
+          "powerbi_contract_manifest": {
+            "file_count": 3,
+            "fingerprint": "cc72600b743f68f4a861f4c18e6d5025e56327d6bdb2d5eede836b3f6580b850",
+            "total_bytes": 9082
+          },
+          "raw_full_import": {
+            "file_count": 361,
+            "fingerprint": "0cb03f47844d0073701c255e9eedd893a6672158f39579c80348ac4d1b8b62e7",
+            "total_bytes": 7568270
+          }
+        },
+        "individual_files": {
+          "processed_1h": "7468ce970381e34fc60a8227fb1594dee5435e88f5521f06ed82bfa15f5ce805",
+          "processed_4h": "ab2ff44340b295d140db9fa1cb81cf5690dc7d78a44392599381c1d2e7edc91b",
+          "sqlite": "7f2e5deadd2c3c3e3f1820266f7f7b680def14d6ecda62c8dbbf5a11d9f0033e"
+        }
+      },
+      "sma_calculation_rule": "math.fsum(window)/window_length"
+    },
+    "protected_method_files": {
+      "config/backtest.json": "e4deb6b6ad56a8517f86822d85086524c3cd3c29890d9754453163d7f1107f04",
+      "config/backtest_phase2b.json": "16382dc037b56fa30b5cfabff2dc1f336dab81b13c62cffafcef44f5c391a78e",
+      "reports/backtest/FEATURE_SIGNAL_DICTIONARY.md": "d3ece11736ac4d799113724850c8761119d86934522ac164cc2055bc951594fc",
+      "reports/backtest/GATE2_ACCEPTANCE_CRITERIA.md": "d22698db5d4a76aa09ab9f67657a2b002fefb3201e44e519c0fb5e7a23f94ced",
+      "reports/backtest/PHASE2_METHOD_PLAN.md": "a1c30e2484d252a65e8ca882eb305adabb520379177147f0210d10ded29daf95",
+      "reports/backtest/phase2b_method/PHASE2B_INDEPENDENT_ACCEPTANCE_REPORT.md": "bcc3095b1f5b0b0057b5c3ff3c9b444cb2bd0c51745272b1ef2e874eaded6846",
+      "reports/backtest/phase2b_outputs/input_output_hashes.json": "c9bdadffab86c8b8f7940429d92b1fdef79389d3e846e0a7284917aaa09184f7",
+      "reports/backtest/phase2b_outputs/phase2b_manifest.csv": "b65d4af6085899b5be49a2e1fa7e246937397454a9fb06b641567c4314e56ef4",
+      "src/backtest_contract.py": "4ad4ff9c54a9fd3a74a3212b4b80fac754a4edfef4f8aa3536b75696d426fbc3",
+      "src/backtest_pipeline.py": "8a8ab18b5575d5366429683cede5253bb3bd4640964671da8d879848d124d28c",
+      "tests/test_backtest_contract.py": "ba93d4801c73a9871e0c9a6ea763feb91d6533cb7c83e06bc1b3923e85131286",
+      "tests/test_backtest_pipeline.py": "4b727db48976c9663c0c8b9e40b34e4b4d009f4461c3502ae96d9730ef01e165"
+    }
+  }
+}

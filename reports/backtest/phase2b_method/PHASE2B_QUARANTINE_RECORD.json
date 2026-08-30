@@ -1,0 +1,46 @@
+{
+  "status": "INVALID_NOT_FOR_ANALYSIS",
+  "reason": "Binary floating-point accumulation moved the SOLUSDT 1h SMA20/SMA50 crossover from 2022-12-18T19:00:00Z to 2022-12-18T18:00:00Z in the invalid bundle.",
+  "performance_use_allowed": false,
+  "performance_warning": "No performance metric from this quarantined bundle may be used.",
+  "original_directories": [
+    "data/processed/phase2b/",
+    "reports/backtest/phase2b_outputs/"
+  ],
+  "quarantine_directories": [
+    "data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/",
+    "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/"
+  ],
+  "file_count": 18,
+  "total_bytes": 174213618,
+  "original_logical_snapshot_sha256": "f1c9dcdfa19e67e74241ea2d7e9a6199907f8fe768a23652282f202fcde09d45",
+  "quarantine_path_snapshot_sha256": "edb9ab532a44795b416dff8a442636e1b6f9aae529ef41187d22392cafbc8a13",
+  "move_method": "same-volume directory rename with rollback of the first rename if the second rename failed",
+  "content_changed_during_quarantine": false,
+  "affected_feature_rows": [
+    {"context_variant": "primary_d1", "symbol": "SOLUSDT", "timeframe": "1h", "segment_id": "SEGMENT_004", "timestamp_utc": "2022-12-18T18:00:00.000000Z", "invalid_signal": true, "decimal_reference_signal": false},
+    {"context_variant": "primary_d1", "symbol": "SOLUSDT", "timeframe": "1h", "segment_id": "SEGMENT_004", "timestamp_utc": "2022-12-18T19:00:00.000000Z", "invalid_signal": false, "decimal_reference_signal": true},
+    {"context_variant": "sensitivity_d2", "symbol": "SOLUSDT", "timeframe": "1h", "segment_id": "SEGMENT_004", "timestamp_utc": "2022-12-18T18:00:00.000000Z", "invalid_signal": true, "decimal_reference_signal": false},
+    {"context_variant": "sensitivity_d2", "symbol": "SOLUSDT", "timeframe": "1h", "segment_id": "SEGMENT_004", "timestamp_utc": "2022-12-18T19:00:00.000000Z", "invalid_signal": false, "decimal_reference_signal": true}
+  ],
+  "files": [
+    {"original_path":"data/processed/phase2b/features_1h_primary_d1.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_1h_primary_d1.csv","sha256":"a3a1089cf92521cf4f7b32790675e5be525781b53a1797a3542a8ba3ee96d35e","size_bytes":39830761,"original_mtime_ns":1785645676545402000,"original_mtime_utc":"2026-08-02T04:41:16.545402Z"},
+    {"original_path":"data/processed/phase2b/features_1h_sensitivity_d2.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_1h_sensitivity_d2.csv","sha256":"6a8a666c7512084fb1d55799c54c9b39cc27ae31fb52f047fcf7cbe6ecfbfd11","size_bytes":40084534,"original_mtime_ns":1785645681506814300,"original_mtime_utc":"2026-08-02T04:41:21.506814Z"},
+    {"original_path":"data/processed/phase2b/features_4h_primary_d1.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_4h_primary_d1.csv","sha256":"948ba5d72798a70b650418e860cd71bd2fd85cdecc673f9c1cd665eb7c31008c","size_bytes":9579468,"original_mtime_ns":1785645682535083600,"original_mtime_utc":"2026-08-02T04:41:22.535084Z"},
+    {"original_path":"data/processed/phase2b/features_4h_sensitivity_d2.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_4h_sensitivity_d2.csv","sha256":"9e3c8fa8861fc2690f8cef956bca9567e3f8e39dc9ec3860df54e35674d534da","size_bytes":9642891,"original_mtime_ns":1785645683868711800,"original_mtime_utc":"2026-08-02T04:41:23.868712Z"},
+    {"original_path":"data/processed/phase2b/trades.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/trades.csv","sha256":"bd3fbc59d3d282fe93d3d8fda612761fcc2ec1828c40ac32c23d207dff2b0f6b","size_bytes":74082717,"original_mtime_ns":1785645697724144600,"original_mtime_utc":"2026-08-02T04:41:37.724145Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/aggregate_results_summary.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/aggregate_results_summary.csv","sha256":"7913dc4d238f120fd508d840f949e30c7b941a3533fdec59cce8cc1f813e95cf","size_bytes":188021,"original_mtime_ns":1785645697813911100,"original_mtime_utc":"2026-08-02T04:41:37.813911Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/baseline_comparison.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/baseline_comparison.csv","sha256":"c52fed6796485de2c5be2f189033547860e2792fe65f07e9761245906dc70c74","size_bytes":119407,"original_mtime_ns":1785645697829797200,"original_mtime_utc":"2026-08-02T04:41:37.829797Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/context_variant_comparison.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/context_variant_comparison.csv","sha256":"9d5beaf4d96311e70907a77f962fd963d09eb9c11cba7c02d5b4b8a27417a2db","size_bytes":88167,"original_mtime_ns":1785645697847712600,"original_mtime_utc":"2026-08-02T04:41:37.847713Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/context_variant_quality.json","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/context_variant_quality.json","sha256":"d96c933ceec8ec48315a9e1224f6e3f1c23e0b2d57dda6ae5218813d3842be16","size_bytes":219,"original_mtime_ns":1785645697854549700,"original_mtime_utc":"2026-08-02T04:41:37.854550Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/execution_quality_summary.json","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/execution_quality_summary.json","sha256":"6e31d60e984e0fee8b06a6a409589e22784b6457ec219e2e5042deaaa1db4aef","size_bytes":400,"original_mtime_ns":1785645697850937700,"original_mtime_utc":"2026-08-02T04:41:37.850938Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/feature_quality_summary.json","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/feature_quality_summary.json","sha256":"27f57f56b5d0c7e87706897e618a09ebc6152f77a84bd6fb9d732f315819a6a2","size_bytes":1766,"original_mtime_ns":1785645697847712600,"original_mtime_utc":"2026-08-02T04:41:37.847713Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/input_output_hashes.json","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/input_output_hashes.json","sha256":"bcfac8860f908293344940aec296b2d75d239361050da696e8d0f4620ab11d82","size_bytes":2149,"original_mtime_ns":1785645701374390000,"original_mtime_utc":"2026-08-02T04:41:41.374390Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/phase2b_manifest.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/phase2b_manifest.csv","sha256":"2a1f55ba902681c72bae0e13adb348a6160046aa8efb2ad8efd95ab4f4128800","size_bytes":2251,"original_mtime_ns":1785645705248853500,"original_mtime_utc":"2026-08-02T04:41:45.248853Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/PHASE2B_QUALITY_REPORT.md","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/PHASE2B_QUALITY_REPORT.md","sha256":"92182862dbaf66829502af74db2d1def9dd880caf9e9a490e467342acaaf33e1","size_bytes":719,"original_mtime_ns":1785645701374390000,"original_mtime_utc":"2026-08-02T04:41:41.374390Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/results_summary.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/results_summary.csv","sha256":"ae9393d06ed0b60907bd9ade01aeac9f31d222e9bc0b09fa0b85a9195e3ae47c","size_bytes":559363,"original_mtime_ns":1785645697797836300,"original_mtime_utc":"2026-08-02T04:41:37.797836Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/sealed_final_test.json","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/sealed_final_test.json","sha256":"9287861b6c99c792c0dc314521f7d9acbb82eea1868dbe32dd1142157be6ca20","size_bytes":294,"original_mtime_ns":1785645697847712600,"original_mtime_utc":"2026-08-02T04:41:37.847713Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/signal_frequency_summary.csv","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/signal_frequency_summary.csv","sha256":"59a4e70b5b96efbbd9faf4df5bdd81d1ca7335f0108a6b9e0f9c02dfbf2113b3","size_bytes":30164,"original_mtime_ns":1785645697748070600,"original_mtime_utc":"2026-08-02T04:41:37.748071Z"},
+    {"original_path":"reports/backtest/phase2b_outputs/split_segment_quality.json","quarantine_path":"data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/split_segment_quality.json","sha256":"33ffa2751192c446dc2032975d7abb578bd19dc221bc3a19093e52bbb97651f2","size_bytes":327,"original_mtime_ns":1785645697850937700,"original_mtime_utc":"2026-08-02T04:41:37.850938Z"}
+  ]
+}

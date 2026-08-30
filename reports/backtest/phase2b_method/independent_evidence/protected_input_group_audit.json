@@ -1,0 +1,65 @@
+[
+  {
+    "id": "raw_full_import",
+    "count": 361,
+    "count_ok": true,
+    "bytes": 7568270,
+    "bytes_ok": true,
+    "fingerprint": "0cb03f47844d0073701c255e9eedd893a6672158f39579c80348ac4d1b8b62e7",
+    "fingerprint_ok": true
+  },
+  {
+    "id": "interim_full_import",
+    "count": 319,
+    "count_ok": true,
+    "bytes": 26167940,
+    "bytes_ok": true,
+    "fingerprint": "14b92e6195e857417b71ebc2a9873a1b3a172d22e4fdcd1e6cbdcc5458686198",
+    "fingerprint_ok": true
+  },
+  {
+    "id": "phase1b_evidence",
+    "count": 5,
+    "count_ok": true,
+    "bytes": 1093624,
+    "bytes_ok": true,
+    "fingerprint": "822a47948b1cbd7e90ccf871cca2813ea64f1a74d23ec79929a14f585929166d",
+    "fingerprint_ok": true
+  },
+  {
+    "id": "phase1c_a_evidence",
+    "count": 4,
+    "count_ok": true,
+    "bytes": 20649,
+    "bytes_ok": true,
+    "fingerprint": "4f48e5863c92ea2a60e092f2de610eaf7c37f998ae2f2ac9f0d6574e805d4032",
+    "fingerprint_ok": true
+  },
+  {
+    "id": "phase1c_b_evidence",
+    "count": 6,
+    "count_ok": true,
+    "bytes": 29333,
+    "bytes_ok": true,
+    "fingerprint": "260f613662186647b99b4a7a5b64b9b7778a3a2398afaf0202151c21b28e846b",
+    "fingerprint_ok": true
+  },
+  {
+    "id": "phase1c_c_evidence",
+    "count": 17,
+    "count_ok": true,
+    "bytes": 80795,
+    "bytes_ok": true,
+    "fingerprint": "2350a8a26044830be93a443b1ed1940cca27c98130e58de8a81bb2f64e9b77ac",
+    "fingerprint_ok": true
+  },
+  {
+    "id": "powerbi_contract_manifest",
+    "count": 3,
+    "count_ok": true,
+    "bytes": 9082,
+    "bytes_ok": true,
+    "fingerprint": "cc72600b743f68f4a861f4c18e6d5025e56327d6bdb2d5eede836b3f6580b850",
+    "fingerprint_ok": true
+  }
+]

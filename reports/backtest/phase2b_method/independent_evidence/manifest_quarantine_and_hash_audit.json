@@ -1,0 +1,387 @@
+{
+  "hashes": {
+    "phase2b_config": "16382dc037b56fa30b5cfabff2dc1f336dab81b13c62cffafcef44f5c391a78e",
+    "pipeline": "8a8ab18b5575d5366429683cede5253bb3bd4640964671da8d879848d124d28c",
+    "phase2a_contract": "e4deb6b6ad56a8517f86822d85086524c3cd3c29890d9754453163d7f1107f04",
+    "processed_1h": "7468ce970381e34fc60a8227fb1594dee5435e88f5521f06ed82bfa15f5ce805",
+    "processed_4h": "ab2ff44340b295d140db9fa1cb81cf5690dc7d78a44392599381c1d2e7edc91b",
+    "sqlite": "7f2e5deadd2c3c3e3f1820266f7f7b680def14d6ecda62c8dbbf5a11d9f0033e"
+  },
+  "manifest_count": 17,
+  "manifest_checks": [
+    {
+      "path": "data/processed/phase2b/features_1h_primary_d1.csv",
+      "exists": true,
+      "size": 46045941,
+      "expected_sha": "03a54bba9d2e7fcd1c7eaf5af8dcd480e1d9f40174921d89667bb975fb5fcf11",
+      "actual_sha": "03a54bba9d2e7fcd1c7eaf5af8dcd480e1d9f40174921d89667bb975fb5fcf11",
+      "sha_ok": true,
+      "expected_rows": 63576,
+      "actual_rows": 63576,
+      "rows_ok": true
+    },
+    {
+      "path": "data/processed/phase2b/features_1h_sensitivity_d2.csv",
+      "exists": true,
+      "size": 46300053,
+      "expected_sha": "e1f6ad321d6208b37987d46c77b55eb72500614f05e4f4a75aa91392a0d22c53",
+      "actual_sha": "e1f6ad321d6208b37987d46c77b55eb72500614f05e4f4a75aa91392a0d22c53",
+      "sha_ok": true,
+      "expected_rows": 63576,
+      "actual_rows": 63576,
+      "rows_ok": true
+    },
+    {
+      "path": "data/processed/phase2b/features_4h_primary_d1.csv",
+      "exists": true,
+      "size": 11066615,
+      "expected_sha": "7fc0b2e8c5a7c98d6d8545afacb1585c6ae41dd969071de70417ed822139f588",
+      "actual_sha": "7fc0b2e8c5a7c98d6d8545afacb1585c6ae41dd969071de70417ed822139f588",
+      "sha_ok": true,
+      "expected_rows": 15894,
+      "actual_rows": 15894,
+      "rows_ok": true
+    },
+    {
+      "path": "data/processed/phase2b/features_4h_sensitivity_d2.csv",
+      "exists": true,
+      "size": 11130107,
+      "expected_sha": "141d01d0375431c3b41cabd9244639e2ead573ad3e0e750fd029045790558254",
+      "actual_sha": "141d01d0375431c3b41cabd9244639e2ead573ad3e0e750fd029045790558254",
+      "sha_ok": true,
+      "expected_rows": 15894,
+      "actual_rows": 15894,
+      "rows_ok": true
+    },
+    {
+      "path": "data/processed/phase2b/trades.csv",
+      "exists": true,
+      "size": 80474683,
+      "expected_sha": "b616689015e1d9aed82ae53ee616852020d26a77a2cb3d901cb962e660a65539",
+      "actual_sha": "b616689015e1d9aed82ae53ee616852020d26a77a2cb3d901cb962e660a65539",
+      "sha_ok": true,
+      "expected_rows": 264624,
+      "actual_rows": 264624,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/aggregate_results_summary.csv",
+      "exists": true,
+      "size": 198111,
+      "expected_sha": "8980f4753a1a5e5d2977ecd25522f7acf9106a0663a4b24d30ca44af8a36546a",
+      "actual_sha": "8980f4753a1a5e5d2977ecd25522f7acf9106a0663a4b24d30ca44af8a36546a",
+      "sha_ok": true,
+      "expected_rows": 480,
+      "actual_rows": 480,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/baseline_comparison.csv",
+      "exists": true,
+      "size": 127713,
+      "expected_sha": "6852389e4dc65f54f4d94f1f9257b7062596cc3257da73e31e21f751f5e6b917",
+      "actual_sha": "6852389e4dc65f54f4d94f1f9257b7062596cc3257da73e31e21f751f5e6b917",
+      "sha_ok": true,
+      "expected_rows": 360,
+      "actual_rows": 360,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/context_variant_comparison.csv",
+      "exists": true,
+      "size": 90981,
+      "expected_sha": "1028501132c31a090effba0a7b83b15c68ca7cb78373d2ed785ecf4a09a4af5c",
+      "actual_sha": "1028501132c31a090effba0a7b83b15c68ca7cb78373d2ed785ecf4a09a4af5c",
+      "sha_ok": true,
+      "expected_rows": 720,
+      "actual_rows": 720,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/context_variant_quality.json",
+      "exists": true,
+      "size": 219,
+      "expected_sha": "d96c933ceec8ec48315a9e1224f6e3f1c23e0b2d57dda6ae5218813d3842be16",
+      "actual_sha": "d96c933ceec8ec48315a9e1224f6e3f1c23e0b2d57dda6ae5218813d3842be16",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/execution_quality_summary.json",
+      "exists": true,
+      "size": 400,
+      "expected_sha": "6e31d60e984e0fee8b06a6a409589e22784b6457ec219e2e5042deaaa1db4aef",
+      "actual_sha": "6e31d60e984e0fee8b06a6a409589e22784b6457ec219e2e5042deaaa1db4aef",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/feature_quality_summary.json",
+      "exists": true,
+      "size": 1766,
+      "expected_sha": "27f57f56b5d0c7e87706897e618a09ebc6152f77a84bd6fb9d732f315819a6a2",
+      "actual_sha": "27f57f56b5d0c7e87706897e618a09ebc6152f77a84bd6fb9d732f315819a6a2",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/input_output_hashes.json",
+      "exists": true,
+      "size": 4425,
+      "expected_sha": "c9bdadffab86c8b8f7940429d92b1fdef79389d3e846e0a7284917aaa09184f7",
+      "actual_sha": "c9bdadffab86c8b8f7940429d92b1fdef79389d3e846e0a7284917aaa09184f7",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/PHASE2B_QUALITY_REPORT.md",
+      "exists": true,
+      "size": 1061,
+      "expected_sha": "625f8ece13d92be7f7d643ad0c6e81d761aaf2dd65740fc7f0846f5a5e0217f3",
+      "actual_sha": "625f8ece13d92be7f7d643ad0c6e81d761aaf2dd65740fc7f0846f5a5e0217f3",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/results_summary.csv",
+      "exists": true,
+      "size": 596373,
+      "expected_sha": "3360157cf4c41a9688ce9a21cdc703e9c88f5083025fb32d69cc0dacab6da71d",
+      "actual_sha": "3360157cf4c41a9688ce9a21cdc703e9c88f5083025fb32d69cc0dacab6da71d",
+      "sha_ok": true,
+      "expected_rows": 1440,
+      "actual_rows": 1440,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/sealed_final_test.json",
+      "exists": true,
+      "size": 493,
+      "expected_sha": "b9354d95f4ce1e687b3691a4e065c3b7a9ac56819034ddb5815f27a76373458d",
+      "actual_sha": "b9354d95f4ce1e687b3691a4e065c3b7a9ac56819034ddb5815f27a76373458d",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/signal_frequency_summary.csv",
+      "exists": true,
+      "size": 30164,
+      "expected_sha": "59a4e70b5b96efbbd9faf4df5bdd81d1ca7335f0108a6b9e0f9c02dfbf2113b3",
+      "actual_sha": "59a4e70b5b96efbbd9faf4df5bdd81d1ca7335f0108a6b9e0f9c02dfbf2113b3",
+      "sha_ok": true,
+      "expected_rows": 360,
+      "actual_rows": 360,
+      "rows_ok": true
+    },
+    {
+      "path": "reports/backtest/phase2b_outputs/split_segment_quality.json",
+      "exists": true,
+      "size": 327,
+      "expected_sha": "33ffa2751192c446dc2032975d7abb578bd19dc221bc3a19093e52bbb97651f2",
+      "actual_sha": "33ffa2751192c446dc2032975d7abb578bd19dc221bc3a19093e52bbb97651f2",
+      "sha_ok": true,
+      "expected_rows": 0,
+      "actual_rows": 0,
+      "rows_ok": true
+    }
+  ],
+  "bundle_file_count": 18,
+  "bundle_total_bytes": 196071683,
+  "quarantine_status": "INVALID_NOT_FOR_ANALYSIS",
+  "quarantine_file_count": 18,
+  "quarantine_total_bytes": 174213618,
+  "quarantine_checks": [
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_1h_primary_d1.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "a3a1089cf92521cf4f7b32790675e5be525781b53a1797a3542a8ba3ee96d35e"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_1h_sensitivity_d2.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "6a8a666c7512084fb1d55799c54c9b39cc27ae31fb52f047fcf7cbe6ecfbfd11"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_4h_primary_d1.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "948ba5d72798a70b650418e860cd71bd2fd85cdecc673f9c1cd665eb7c31008c"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/features_4h_sensitivity_d2.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "9e3c8fa8861fc2690f8cef956bca9567e3f8e39dc9ec3860df54e35674d534da"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/data_bundle/trades.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "bd3fbc59d3d282fe93d3d8fda612761fcc2ec1828c40ac32c23d207dff2b0f6b"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/aggregate_results_summary.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "7913dc4d238f120fd508d840f949e30c7b941a3533fdec59cce8cc1f813e95cf"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/baseline_comparison.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "c52fed6796485de2c5be2f189033547860e2792fe65f07e9761245906dc70c74"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/context_variant_comparison.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "9d5beaf4d96311e70907a77f962fd963d09eb9c11cba7c02d5b4b8a27417a2db"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/context_variant_quality.json",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "d96c933ceec8ec48315a9e1224f6e3f1c23e0b2d57dda6ae5218813d3842be16"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/execution_quality_summary.json",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "6e31d60e984e0fee8b06a6a409589e22784b6457ec219e2e5042deaaa1db4aef"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/feature_quality_summary.json",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "27f57f56b5d0c7e87706897e618a09ebc6152f77a84bd6fb9d732f315819a6a2"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/input_output_hashes.json",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "bcfac8860f908293344940aec296b2d75d239361050da696e8d0f4620ab11d82"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/phase2b_manifest.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "2a1f55ba902681c72bae0e13adb348a6160046aa8efb2ad8efd95ab4f4128800"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/PHASE2B_QUALITY_REPORT.md",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "92182862dbaf66829502af74db2d1def9dd880caf9e9a490e467342acaaf33e1"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/results_summary.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "ae9393d06ed0b60907bd9ade01aeac9f31d222e9bc0b09fa0b85a9195e3ae47c"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/sealed_final_test.json",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "9287861b6c99c792c0dc314521f7d9acbb82eea1868dbe32dd1142157be6ca20"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/signal_frequency_summary.csv",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "59a4e70b5b96efbbd9faf4df5bdd81d1ca7335f0108a6b9e0f9c02dfbf2113b3"
+    },
+    {
+      "path": "data/processed/phase2b_quarantine/invalid_sma_boundary_run/report_bundle/split_segment_quality.json",
+      "exists": true,
+      "size_ok": true,
+      "sha_ok": true,
+      "actual_sha": "33ffa2751192c446dc2032975d7abb578bd19dc221bc3a19093e52bbb97651f2"
+    }
+  ],
+  "part_files": [],
+  "provenance": {
+    "backtest_pipeline_sha256": "8a8ab18b5575d5366429683cede5253bb3bd4640964671da8d879848d124d28c",
+    "final_test_status": "SEALED_NOT_EVALUATED",
+    "float_serialization_rule": ".17g",
+    "implementation_policy_id": "phase2b_fsum_float17_provenance_v2",
+    "phase2a_contract_sha256": "e4deb6b6ad56a8517f86822d85086524c3cd3c29890d9754453163d7f1107f04",
+    "phase2b_config_sha256": "16382dc037b56fa30b5cfabff2dc1f336dab81b13c62cffafcef44f5c391a78e",
+    "protected_inputs": {
+      "groups": {
+        "interim_full_import": {
+          "file_count": 319,
+          "fingerprint": "14b92e6195e857417b71ebc2a9873a1b3a172d22e4fdcd1e6cbdcc5458686198",
+          "total_bytes": 26167940
+        },
+        "phase1b_evidence": {
+          "file_count": 5,
+          "fingerprint": "822a47948b1cbd7e90ccf871cca2813ea64f1a74d23ec79929a14f585929166d",
+          "total_bytes": 1093624
+        },
+        "phase1c_a_evidence": {
+          "file_count": 4,
+          "fingerprint": "4f48e5863c92ea2a60e092f2de610eaf7c37f998ae2f2ac9f0d6574e805d4032",
+          "total_bytes": 20649
+        },
+        "phase1c_b_evidence": {
+          "file_count": 6,
+          "fingerprint": "260f613662186647b99b4a7a5b64b9b7778a3a2398afaf0202151c21b28e846b",
+          "total_bytes": 29333
+        },
+        "phase1c_c_evidence": {
+          "file_count": 17,
+          "fingerprint": "2350a8a26044830be93a443b1ed1940cca27c98130e58de8a81bb2f64e9b77ac",
+          "total_bytes": 80795
+        },
+        "powerbi_contract_manifest": {
+          "file_count": 3,
+          "fingerprint": "cc72600b743f68f4a861f4c18e6d5025e56327d6bdb2d5eede836b3f6580b850",
+          "total_bytes": 9082
+        },
+        "raw_full_import": {
+          "file_count": 361,
+          "fingerprint": "0cb03f47844d0073701c255e9eedd893a6672158f39579c80348ac4d1b8b62e7",
+          "total_bytes": 7568270
+        }
+      },
+      "individual_files": {
+        "processed_1h": "7468ce970381e34fc60a8227fb1594dee5435e88f5521f06ed82bfa15f5ce805",
+        "processed_4h": "ab2ff44340b295d140db9fa1cb81cf5690dc7d78a44392599381c1d2e7edc91b",
+        "sqlite": "7f2e5deadd2c3c3e3f1820266f7f7b680def14d6ecda62c8dbbf5a11d9f0033e"
+      }
+    },
+    "sma_calculation_rule": "math.fsum(window)/window_length"
+  }
+}
